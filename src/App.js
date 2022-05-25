@@ -12,7 +12,7 @@ function App() {
         <BookCard></BookCard>
         <Switch></Switch>
         <Button color="success">Click this button</Button>
-        <Error style={{backgroundColor:'cornflowerblue'}}>This is an error Message</Error>
+        {/* <Error style={{backgroundColor:'cornflowerblue'}}>This is an error Message</Error> */}
       </NavBar>
   );
 }
