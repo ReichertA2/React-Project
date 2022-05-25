@@ -23,14 +23,21 @@ export default function MediaCard() {
             />
             <CardContent>
                 <Typography gutterBottom variant="h4" component="div">
-                    The wizard of Oz
+                    The Wonderful Wizard of Oz
                 </Typography>
                 <Typography gutterBottom variant="h6" component="div">
                     L. Frank Baum
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                     A modern fairy tale with a distinctly American setting, a delightfully levelheaded and assertive heroine, and engaging fantasy characters, the story was enormously popular and became a classic of children’s literature. However, by the late 20th century the 1939 film The Wizard of Oz had become more familiar than the book on which it was based.
+            
                 </Typography>
+                <Typography variant="body2" color="text.secondary">
+                    76 pages
+            
+                </Typography>
+                
+                
             </CardContent>
             <CardActions>
                 <Button size="small">Add</Button>
