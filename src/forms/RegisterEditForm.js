@@ -88,6 +88,7 @@ export default function RegisterEditForm({ user={id:1, email: "gizmo@yahoo.com",
             <TextField
                 id="password"
                 name="password"
+                type="password"
                 fullWidth
                 sx={{mb:2}}
                 label="Password"
