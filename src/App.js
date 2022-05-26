@@ -6,7 +6,7 @@ import NavBar from './components/NavBar';
 import BookCard from './components/BookCard';
 import Switch from './components/Switch';
 import LoginForm from './forms/LoginForm';
-import RegisterForm from './forms/RegisterForm';
+import RegisterEditForm from './forms/RegisterEditForm';
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
         <Switch></Switch>
         <Button>Log Out</Button>
         {/* <Error style={{backgroundColor:'cornflowerblue'}}>This is an error Message</Error> */}
-        <RegisterForm/>
+        <RegisterEditForm/>
         {/* <LoginForm/> */}
       </NavBar>
   );

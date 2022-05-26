@@ -14,24 +14,33 @@ const FormSchema=Yup.object(
     }
 )
 
-const initialValues={
-    email:'',
-    first_name:'',
-    last_name:'',
-    password:'',
-}
-
-const handleSubmit=(values)=>{
-    console.log(values)
-}
 
 
-export default function LoginForm(){
+
+export default function RegisterEditForm({ user={id:1, email: "gizmo@yahoo.com", first_name:"Gizmo", last_name:"Taylor", password:"123"}}){
+
+    const initialValues={
+        email:user?.email ?? '',
+        first_name:user?.first_name ?? '',
+        last_name:user?.last_name ?? '',
+        password:user?.password ?? '',
+    }
+    
+    const handleSubmit=(values, resetForm)=>{
+        if (user){
+            console.log('Editing Profile')
+        }else{
+            console.log('Registering')
+        }
+        console.log(values)
+        resetForm(initialValues)
+    }
     
     const formik = useFormik({
         initialValues:initialValues,
         validationSchema:FormSchema,
-        onSubmit:(values)=>{handleSubmit(values)}
+        onSubmit:(values,  {resetForm})=>{handleSubmit(values, resetForm)},
+        enableReinitialize:true
 
     })
 
@@ -42,8 +51,8 @@ export default function LoginForm(){
                 name="email"
                 fullWidth
                 sx={{mb:2, mt:2}}
-                label="email"
-                placeholder="email"
+                label="Email"
+                placeholder="Email"
                 value={formik.values.email}
                 onChange={formik.handleChange}
                 error={formik.touched.email && Boolean(formik.errors.email)}
@@ -55,8 +64,8 @@ export default function LoginForm(){
                 name="first_name"
                 fullWidth
                 sx={{mb:2}}
-                label="first_name"
-                placeholder="first_name"
+                label="First Name"
+                placeholder="First Name"
                 value={formik.values.first_name}
                 onChange={formik.handleChange}
                 error={formik.touched.first_name && Boolean(formik.errors.first_name)}
@@ -68,8 +77,8 @@ export default function LoginForm(){
                 name="last_name"
                 fullWidth
                 sx={{mb:2}}
-                label="last_name"
-                placeholder="last_name"
+                label="Last Name"
+                placeholder="Last name"
                 value={formik.values.last_name}
                 onChange={formik.handleChange}
                 error={formik.touched.last_name && Boolean(formik.errors.last_name)}
@@ -81,15 +90,15 @@ export default function LoginForm(){
                 name="password"
                 fullWidth
                 sx={{mb:2}}
-                label="password"
-                placeholder="password"
+                label="Password"
+                placeholder="Password"
                 value={formik.values.password}
                 onChange={formik.handleChange}
                 error={formik.touched.password && Boolean(formik.errors.password)}
                 helperText={formik.touched.password && formik.errors.password}
             />
 
-            <Button type="submit" sx={{width:"100%"}}>Register</Button>
+            <Button type="submit" sx={{width:"100%"}}>{user?"Edit Profile":"Register"}</Button>
         </form>
     )
 
