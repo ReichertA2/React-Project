@@ -18,7 +18,10 @@ import apiUser from './api/apiUser';
 // const my_token = "ObIhSZdzSPJoXhqoXG0vJdDqojRAtrXBHjt-hv4YLFY"
 
 // maya token below
-const user1 = "mfaU1eSio5dLx3iUTzzdFUAyKCS_RxWjdXvDe3cMouY"
+// const user1 = "mfaU1eSio5dLx3iUTzzdFUAyKCS_RxWjdXvDe3cMouY"
+
+// leah token below
+// const user2 = "N-fyOrXHvyRM-W-UDrMHrm8n_p7QxM-csWw1UHHDuHQ"
 
 const handleAPITest= async ()=>{
   const source = CancelToken.source();
@@ -32,7 +35,8 @@ const handleAPITest= async ()=>{
   // const response_object=await apiUser.post(data, source.token);
   // const response_object=await getUser("aydee@yahoo.com", "123", source.token);
   // const response_object=await apiUser.put(user1,{'last_name':'Dumbo'}, source.token);
-  const response_object= await apiUser.del(user1, source.token);
+  // const response_object= await apiUser.del(user1, source.token);
+  const response_object=await apiBook.getOneBook(20, source.token);
   console.log(response_object)
 }
 
