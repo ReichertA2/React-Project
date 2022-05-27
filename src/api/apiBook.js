@@ -18,6 +18,9 @@ const get = async (cancelToken) =>{
     }
 }
 
+
+
 export default {
     get
+    
 }
