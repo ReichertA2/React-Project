@@ -8,12 +8,38 @@ import Switch from './components/Switch';
 import LoginForm from './forms/LoginForm';
 import RegisterEditForm from './forms/RegisterEditForm';
 
+import {getUser} from './api/apiBasicAuth';
+import { CancelToken } from 'apisauce';
+
+import apiBook from './api/apiBook';
+import apiUser from './api/apiUser';
+
+// Aydee's token below
+// const my_token = "ObIhSZdzSPJoXhqoXG0vJdDqojRAtrXBHjt-hv4YLFY"
+
+// maya token below
+// const user1 = "mfaU1eSio5dLx3iUTzzdFUAyKCS_RxWjdXvDe3cMouY"
+
+const handleAPITest= async ()=>{
+  const source = CancelToken.source();
+  // const response_object=await apiBook.get(source.token);
+  // let data={
+  //     "email" : "leah@yahoo.com",
+  //     "first_name" : "Leah",
+  //     "last_name" : "Ellis",
+  //     "password" : "123",
+  // }
+  // const response_object=await apiUser.post(data, source.token);
+  const response_object=await getUser("aydee@yahoo.com", "123", source.token);
+  console.log(response_object)
+}
+
 function App() {
   return (
       <NavBar>
         <BookCard></BookCard>
         <Switch></Switch>
-        <Button>Log Out</Button>
+        <Button onClick={handleAPITest}>Test API Call</Button>
         {/* <Error style={{backgroundColor:'cornflowerblue'}}>This is an error Message</Error> */}
         <RegisterEditForm/>
         {/* <LoginForm/> */}
