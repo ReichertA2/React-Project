@@ -16,8 +16,11 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+// import InboxIcon from '@mui/icons-material/MoveToInbox';
+// import MailIcon from '@mui/icons-material/Mail';
+import HomeSharpIcon from '@mui/icons-material/HomeSharp';
+import StoreSharpIcon from '@mui/icons-material/StoreSharp';
+import ShoppingCartSharpIcon from '@mui/icons-material/ShoppingCartSharp';
 
 const drawerWidth = 240;
 
@@ -131,30 +134,34 @@ export default function MiniDrawer({ children }) {
                 </DrawerHeader>
                 <Divider />
                 <List>
-                    {['Home', 'Browse Books'].map((text, index) => (
-                        <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-                            <ListItemButton
-                                sx={{
-                                    minHeight: 48,
-                                    justifyContent: open ? 'initial' : 'center',
-                                    px: 2.5,
-                                }}
-                            >
-                                <ListItemIcon
+                    {
+                        [{ label: 'Home', path: '', icon: <HomeSharpIcon style={{ color: 'black' }} /> },
+                        { label: 'Book Store', path: '', icon: <StoreSharpIcon style={{ color: 'black' }} /> },
+                        { label: 'Cart', path: '', icon: <ShoppingCartSharpIcon style={{ color: 'black' }} /> },
+
+                        ].map((navItem, index) => (
+                            <ListItem key={navItem.label} disablePadding sx={{ display: 'block' }}>
+                                <ListItemButton
                                     sx={{
-                                        minWidth: 0,
-                                        mr: open ? 3 : 'auto',
-                                        justifyContent: 'center',
+                                        minHeight: 48,
+                                        justifyContent: open ? 'initial' : 'center',
+                                        px: 2.5,
                                     }}
                                 >
-                                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                                </ListItemIcon>
-                                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-                            </ListItemButton>
-                        </ListItem>
-                    ))}
+                                    <ListItemIcon
+                                        sx={{
+                                            minWidth: 0,
+                                            mr: open ? 3 : 'auto',
+                                            justifyContent: 'center',
+                                        }}
+                                    >
+                                        {navItem.icon}
+                                    </ListItemIcon>
+                                    <ListItemText primary={navItem.label} sx={{ opacity: open ? 1 : 0 }} />
+                                </ListItemButton>
+                            </ListItem>
+                        ))}
                 </List>
-
 
             </Drawer>
             <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
