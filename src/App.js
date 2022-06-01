@@ -14,6 +14,10 @@ import { CancelToken } from 'apisauce';
 import apiBook from './api/apiBook';
 import apiUser from './api/apiUser';
 
+import AllBookBrowser from './components/AllBookBrowser'
+import ReadingList from './components/ReadingList';
+import FilterBySubject from './components/FilterBySubject'
+
 // Aydee's token below
 // const my_token = "ObIhSZdzSPJoXhqoXG0vJdDqojRAtrXBHjt-hv4YLFY"
 
@@ -43,6 +47,9 @@ const handleAPITest= async ()=>{
 function App() {
   return (
       <NavBar>
+        <FilterBySubject/>
+        <AllBookBrowser/>
+        <ReadingList/>
         <BookCard></BookCard>
         <Switch></Switch>
         <Button onClick={handleAPITest}>Test API Call</Button>
