@@ -139,7 +139,7 @@ export default function MiniDrawer({ children }) {
                         <MenuIcon />
                     </IconButton>
                     <Box sx={{ mr: 3 }}>
-                        <img height='45px' alt="Book Logo" className='p2' src="https://res.cloudinary.com/dla9zwzty/image/upload/v1654101996/logo_idfje6.jpg"/>
+                    <img height='45px' alt="book logo" className='p2' src="https://res.cloudinary.com/dla9zwzty/image/upload/v1654099900/logo_s8tcss.jpg"/>
                     </Box>
                     <Typography sx={{ flexGrow: 1 }} variant="h6" noWrap component="div">
                         Books
