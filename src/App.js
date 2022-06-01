@@ -17,6 +17,7 @@ import apiUser from './api/apiUser';
 import AllBookBrowser from './components/AllBookBrowser'
 import ReadingList from './components/ReadingList';
 import FilterBySubject from './components/FilterBySubject'
+import AddRemoveBookMenu from './components/AddRemoveBookMenu'
 
 // Aydee's token below
 // const my_token = "ObIhSZdzSPJoXhqoXG0vJdDqojRAtrXBHjt-hv4YLFY"
@@ -56,6 +57,7 @@ function App() {
         {/* <Error style={{backgroundColor:'cornflowerblue'}}>This is an error Message</Error> */}
         <RegisterEditForm/>
         {/* <LoginForm/> */}
+        <AddRemoveBookMenu/>
       </NavBar>
   );
 }
