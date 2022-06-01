@@ -20,7 +20,16 @@ import ListItemText from '@mui/material/ListItemText';
 // import MailIcon from '@mui/icons-material/Mail';
 import HomeSharpIcon from '@mui/icons-material/HomeSharp';
 import StoreSharpIcon from '@mui/icons-material/StoreSharp';
-import ShoppingCartSharpIcon from '@mui/icons-material/ShoppingCartSharp';
+import AutoStoriesSharpIcon from '@mui/icons-material/AutoStoriesSharp';
+import Avatar from '@mui/material/Avatar';
+import Tooltip from '@mui/material/Tooltip';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+
+
+
+
+
 
 const drawerWidth = 240;
 
@@ -93,6 +102,17 @@ export default function MiniDrawer({ children }) {
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
 
+    const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+    const handleOpenUserMenu = (event) => {
+        setAnchorElUser(event.currentTarget);
+    };
+
+    const handleCloseUserMenu = () => {
+        setAnchorElUser(null);
+    };
+
+
     const handleDrawerOpen = () => {
         setOpen(true);
     };
@@ -118,12 +138,43 @@ export default function MiniDrawer({ children }) {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Box sx={{ mr: 2 }}>
-                        <img height="40px" className='book' alt="book logo" src="https://res.cloudinary.com/dla9zwzty/image/upload/v1653506849/books_icon_drsztn.jpg" />
+                    <Box sx={{ mr: 3 }}>
+                        <img height='45px' alt="Book Logo" className='p2' src="https://res.cloudinary.com/dla9zwzty/image/upload/v1654101996/logo_idfje6.jpg"/>
                     </Box>
-                    <Typography variant="h6" noWrap component="div">
+                    <Typography sx={{ flexGrow: 1 }} variant="h6" noWrap component="div">
                         Books
                     </Typography>
+                    <Box sx={{ flexGrow: 0, }}>
+                        <Tooltip title="Open settings">
+                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                            </IconButton>
+                        </Tooltip>
+                        <Menu
+                            sx={{ mt: '45px' }}
+                            id="menu-appbar"
+                            anchorEl={anchorElUser}
+                            anchorOrigin={{
+                                vertical: 'top',
+                                horizontal: 'right',
+                            }}
+                            keepMounted
+                            transformOrigin={{
+                                vertical: 'top',
+                                horizontal: 'right',
+                            }}
+                            open={Boolean(anchorElUser)}
+                            onClose={handleCloseUserMenu}
+                        >
+
+                            <MenuItem onClick={handleCloseUserMenu}>
+                                <Typography textAlign="center">
+                                    Logout
+                                </Typography>
+                            </MenuItem>
+
+                        </Menu>
+                    </Box>
                 </Toolbar>
             </AppBar>
             <Drawer variant="permanent" open={open}>
@@ -137,7 +188,7 @@ export default function MiniDrawer({ children }) {
                     {
                         [{ label: 'Home', path: '', icon: <HomeSharpIcon style={{ color: 'black' }} /> },
                         { label: 'Book Store', path: '', icon: <StoreSharpIcon style={{ color: 'black' }} /> },
-                        { label: 'Cart', path: '', icon: <ShoppingCartSharpIcon style={{ color: 'black' }} /> },
+                        { label: 'Reading List', path: '', icon: <AutoStoriesSharpIcon style={{ color: 'black' }} /> },
 
                         ].map((navItem, index) => (
                             <ListItem key={navItem.label} disablePadding sx={{ display: 'block' }}>
