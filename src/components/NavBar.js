@@ -25,6 +25,7 @@ import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import ThemeSwitch from './ThemeSwitch';
 
 
 
@@ -213,7 +214,13 @@ export default function MiniDrawer({ children }) {
                             </ListItem>
                         ))}
                 </List>
-
+                {open?
+                <ListItem sx={{position:"absolute", bottom:"0px", justifyContent:"center"}}>
+                    <ThemeSwitch/>
+                </ListItem>
+                :
+                ''
+                }
             </Drawer>
             <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
                 <DrawerHeader />
