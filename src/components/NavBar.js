@@ -187,9 +187,9 @@ export default function MiniDrawer({ children }) {
                 <Divider />
                 <List>
                     {
-                        [{ label: 'Home', path: '', icon: <HomeSharpIcon style={{ color: 'black' }} /> },
-                        { label: 'Book Store', path: '', icon: <StoreSharpIcon style={{ color: 'black' }} /> },
-                        { label: 'Reading List', path: '', icon: <AutoStoriesSharpIcon style={{ color: 'black' }} /> },
+                        [{ label: 'Home', path: '', icon: <HomeSharpIcon  /> },
+                        { label: 'Book Store', path: '', icon: <StoreSharpIcon  /> },
+                        { label: 'Reading List', path: '', icon: <AutoStoriesSharpIcon  /> },
 
                         ].map((navItem, index) => (
                             <ListItem key={navItem.label} disablePadding sx={{ display: 'block' }}>
