@@ -1,11 +1,10 @@
-import primaryTheme from './themes/primaryTheme';
-import primaryThemeDark from './themes/primaryThemeDark';
-
+import primaryTheme from './primaryTheme';
+import primaryThemeDark from './primaryThemeDark';
 const themes={
     primaryTheme,
-    primaryThemeDark,
+    primaryThemeDark
 }
 
 export default function getTheme(theme){
-    return themes(theme)
+    return themes[theme]
 }
