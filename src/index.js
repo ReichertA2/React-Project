@@ -7,7 +7,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 import CustomThemeProvider from './context/ThemeContext';
 import AppContextProvider from './context/AppContext';
 
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

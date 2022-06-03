@@ -14,13 +14,13 @@ import { CancelToken } from 'apisauce';
 import apiBook from './api/apiBook';
 import apiUser from './api/apiUser';
 
-import AllBookBrowser from './components/AllBookBrowser'
+import AllBookBrowser from './components/AllBookBrowser';
 import ReadingList from './components/ReadingList';
-import FilterBySubject from './components/FilterBySubject'
+import FilterBySubject from './components/FilterBySubject';
 import AddRemoveBookMenu from './components/AddRemoveBookMenu'
 
 // Aydee's token below
-// const my_token = "ObIhSZdzSPJoXhqoXG0vJdDqojRAtrXBHjt-hv4YLFY"
+const my_token = "i6PGGokhGDIxBp4wCtvM-13uhFElUqVY4tWU4AB_EAA"
 
 // maya token below
 // const user1 = "mfaU1eSio5dLx3iUTzzdFUAyKCS_RxWjdXvDe3cMouY"
@@ -48,16 +48,17 @@ const handleAPITest= async ()=>{
 function App() {
   return (
       <NavBar>
-        <FilterBySubject/>
+        <LoginForm/>
+        {/* <FilterBySubject/>
         <AllBookBrowser/>
         <ReadingList/>
         <BookCard></BookCard>
-        <Switch></Switch>
-        <Button onClick={handleAPITest}>Test API Call</Button>
+        <Switch></Switch> */}
+        {/* <Button onClick={handleAPITest}>Test API Call</Button> */}
         {/* <Error style={{backgroundColor:'cornflowerblue'}}>This is an error Message</Error> */}
-        <RegisterEditForm/>
-        {/* <LoginForm/> */}
-        <AddRemoveBookMenu/>
+        {/* <RegisterEditForm/> */}
+        
+        {/* <AddRemoveBookMenu/> */}
       </NavBar>
   );
 }
