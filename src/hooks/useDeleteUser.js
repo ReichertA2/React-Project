@@ -43,7 +43,7 @@ export default function useDeleteUser() {
                     ///redirect to the login page
                 }
             }
-            if(user?.first_name){
+            if(user?.name){
                 deleteUser();
             };
             return ()=>{source.cancel()}

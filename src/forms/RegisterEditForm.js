@@ -71,6 +71,13 @@ export default function RegisterEditForm({ user}){
 
     return(
         <form onSubmit={formik.handleSubmit}>
+            
+            {!user ? <label>Register User Form</label> : <label>Edit User Form</label>}
+            
+
+            
+
+            
             <TextField
                 id="email"
                 name="email"
@@ -123,9 +130,14 @@ export default function RegisterEditForm({ user}){
                 error={formik.touched.password && Boolean(formik.errors.password)}
                 helperText={formik.touched.password && formik.errors.password}
             />
-
-            <Button type="submit" sx={{width:"100%"}}>{user?"Edit Profile":"Register"}</Button>
-            {/* <Button color="error" onClick={()=>handleDelete()} sx={{width:"100%", my:1}}>Delete User</Button> */}
+            {!user ? 
+            <Button type="submit" sx={{width:"100%"}}>Register</Button> : 
+            <div>
+                <Button type="submit" sx={{width:"100%"}}>Edit Profile</Button> 
+                <Button color="error" onClick={()=>handleDelete()} sx={{width:"100%", my:1}}>Delete User</Button>
+            </div>}
+            
+            
         </form>
     )
 

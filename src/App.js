@@ -51,7 +51,8 @@ function App() {
   return (
       <NavBar>
         {/* <AllBookBrowser/> */}
-        <LoginForm/>
+        {false ?<LoginForm/>: <RegisterEditForm/>}
+        
         
         {/* <FilterBySubject/>
         <AllBookBrowser/>
@@ -60,7 +61,7 @@ function App() {
         <Switch></Switch> */}
         {/* <Button onClick={handleAPITest}>Test API Call</Button> */}
         {/* <Error style={{backgroundColor:'cornflowerblue'}}>This is an error Message</Error> */}
-        <RegisterEditForm/>
+        {/* <RegisterEditForm/> */}
         
         <AddRemoveBookMenu/>
       </NavBar>
