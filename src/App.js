@@ -19,6 +19,8 @@ import ReadingList from './components/ReadingList';
 import FilterBySubject from './components/FilterBySubject';
 import AddRemoveBookMenu from './components/AddRemoveBookMenu'
 
+
+
 // Aydee's token below
 const my_token = "i6PGGokhGDIxBp4wCtvM-13uhFElUqVY4tWU4AB_EAA"
 
@@ -48,7 +50,9 @@ const handleAPITest= async ()=>{
 function App() {
   return (
       <NavBar>
-        <LoginForm/>
+        <AllBookBrowser/>
+        {/* <LoginForm/> */}
+
         {/* <FilterBySubject/>
         <AllBookBrowser/>
         <ReadingList/>

@@ -4,12 +4,26 @@ import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 import IconButton from '@mui/material/IconButton';
 import BookmarkAddSharpIcon from '@mui/icons-material/BookmarkAddSharp';
+import useBook from '../hooks/useBook';
+import Box from '@mui/material/Box';
+import Error from './Error';
 
 export default function AllBookBrowser() {
+
+  const {books, error} = useBook();
+
+  if (error){
+    return (
+      <Box sx={{display:"flex"}}>
+        <Error>{error}</Error>
+      </Box>
+    )
+  }
+
   return (
     <ImageList cols={3}>
       
-      {books.map((item) => (
+      {books?.map((item) => (
         <ImageListItem key={item.id}>
           <img
             src={`${item.img}`}
