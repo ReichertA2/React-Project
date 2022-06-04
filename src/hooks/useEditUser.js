@@ -20,7 +20,7 @@ export default function useEditUser(users) {
                     ///redirect to the login page
                 }
             }
-            if(users?.name){
+            if(users?.first_name){
                 editUsers();
             };
             return ()=>{source.cancel()}
