@@ -1,8 +1,15 @@
-import React from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import * as Yup from "yup";
 import { useFormik } from 'formik';
 import Button from '../components/Button';
 import TextField from '@mui/material/TextField';
+import DeleteIcon from '@mui/icons-material/Delete';
+import { AppContext } from '../context/AppContext';
+import Error from '../components/Error';
+import useDeleteUser from '../hooks/useDeleteUser';
+import useCreateUser from '../hooks/useCreateUser';
+import useEditUser from '../hooks/useEditUser';
+
 
 // Defining our yup validation
 const FormSchema=Yup.object(
@@ -17,7 +24,18 @@ const FormSchema=Yup.object(
 
 
 
-export default function RegisterEditForm({ user={id:1, email: "gizmo@yahoo.com", first_name:"Gizmo", last_name:"Taylor", password:"123"}}){
+export default function RegisterEditForm({ user}){
+
+    
+
+    const [newUser, setNewUser] = useState({})
+    const [editUser, setEditUser] = useState({})
+    const [deleteUser, setDeleteUser] = useState({})
+
+    useCreateUser(newUser)
+    useEditUser(editUser)
+    useDeleteUser(deleteUser)
+   
 
     const initialValues={
         email:user?.email ?? '',
@@ -27,10 +45,12 @@ export default function RegisterEditForm({ user={id:1, email: "gizmo@yahoo.com",
     }
     
     const handleSubmit=(values, resetForm)=>{
-        if (user){
-            console.log('Editing Profile')
-        }else{
+        if (!user){
+            setNewUser(values)
             console.log('Registering')
+        }else{
+            setEditUser({...values})
+            console.log('Edit Profile')
         }
         console.log(values)
         resetForm(initialValues)
@@ -43,6 +63,11 @@ export default function RegisterEditForm({ user={id:1, email: "gizmo@yahoo.com",
         enableReinitialize:true
 
     })
+
+    const handleDelete=()=>{
+        setDeleteUser(user)
+        console.log('test delete', user)
+    }
 
     return(
         <form onSubmit={formik.handleSubmit}>
@@ -100,6 +125,7 @@ export default function RegisterEditForm({ user={id:1, email: "gizmo@yahoo.com",
             />
 
             <Button type="submit" sx={{width:"100%"}}>{user?"Edit Profile":"Register"}</Button>
+            <Button color="error" onClick={()=>handleDelete()} sx={{width:"100%", my:1}}>Delete User</Button>
         </form>
     )
 

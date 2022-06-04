@@ -50,9 +50,9 @@ const handleAPITest= async ()=>{
 function App() {
   return (
       <NavBar>
-        <AllBookBrowser/>
+        {/* <AllBookBrowser/> */}
         {/* <LoginForm/> */}
-
+        
         {/* <FilterBySubject/>
         <AllBookBrowser/>
         <ReadingList/>
@@ -60,9 +60,9 @@ function App() {
         <Switch></Switch> */}
         {/* <Button onClick={handleAPITest}>Test API Call</Button> */}
         {/* <Error style={{backgroundColor:'cornflowerblue'}}>This is an error Message</Error> */}
-        {/* <RegisterEditForm/> */}
+        <RegisterEditForm/>
         
-        {/* <AddRemoveBookMenu/> */}
+        <AddRemoveBookMenu/>
       </NavBar>
   );
 }
