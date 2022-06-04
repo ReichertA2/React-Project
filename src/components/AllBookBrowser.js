@@ -7,10 +7,21 @@ import BookmarkAddSharpIcon from '@mui/icons-material/BookmarkAddSharp';
 import useBook from '../hooks/useBook';
 import Box from '@mui/material/Box';
 import Error from './Error';
+import { CircularProgress } from '@mui/material';
 
 export default function AllBookBrowser() {
 
   const {books, error} = useBook();
+
+  if(!books){
+    return(
+    <Box sx={{display:"flex"}}>
+      <CircularProgress/>
+    </Box>
+
+    )
+
+  }
 
   if (error){
     return (
@@ -20,10 +31,12 @@ export default function AllBookBrowser() {
     )
   }
 
+
+
   return (
     <ImageList cols={3}>
       
-      {books?.map((item) => (
+      {books.map((item) => (
         <ImageListItem key={item.id}>
           <img
             src={`${item.img}`}
