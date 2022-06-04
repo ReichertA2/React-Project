@@ -27,7 +27,7 @@ import { CancelToken } from 'apisauce';
 import apiUser  from '../api/apiUser';
 import { AppContext } from '../context/AppContext'
 
-export default function useDeleteUser() {   
+export default function useDeleteUser(users) {   
     let response
     const {user, setAlert} = useContext(AppContext)
 
@@ -38,16 +38,17 @@ export default function useDeleteUser() {
                 response = await apiUser.del(user.token, source.token);
                 if (response){
                     setAlert({msg:`User: ${user.name} Deleted`, user:'success'})
+                    console.log("deleted: " , user.first_name)
                 }else if(response!==undefined && response ===false){
                     setAlert({msg:`Please Reauthorize Your Account`, user:'warning'})
                     ///redirect to the login page
                 }
             }
-            if(user?.name){
+            if(user?.first_name){
                 deleteUser();
             };
             return ()=>{source.cancel()}
-        },[user]
+        },[users]
     )
   
 }
