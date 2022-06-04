@@ -51,7 +51,7 @@ function App() {
   return (
       <NavBar>
         {/* <AllBookBrowser/> */}
-        {/* <LoginForm/> */}
+        <LoginForm/>
         
         {/* <FilterBySubject/>
         <AllBookBrowser/>

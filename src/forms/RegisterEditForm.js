@@ -125,7 +125,7 @@ export default function RegisterEditForm({ user}){
             />
 
             <Button type="submit" sx={{width:"100%"}}>{user?"Edit Profile":"Register"}</Button>
-            <Button color="error" onClick={()=>handleDelete()} sx={{width:"100%", my:1}}>Delete User</Button>
+            {/* <Button color="error" onClick={()=>handleDelete()} sx={{width:"100%", my:1}}>Delete User</Button> */}
         </form>
     )
 
