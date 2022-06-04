@@ -51,7 +51,8 @@ function App() {
   return (
       <NavBar>
         {/* <AllBookBrowser/> */}
-        {false ?<LoginForm/>: <RegisterEditForm/>}
+        <LoginForm/>
+        <RegisterEditForm/>
         
         
         {/* <FilterBySubject/>

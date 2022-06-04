@@ -24,9 +24,10 @@ const FormSchema=Yup.object(
 
 
 
-export default function RegisterEditForm({ user}){
+export default function RegisterEditForm({}){
 
-    
+    const {user, setAlert} =useContext(AppContext)
+
 
     const [newUser, setNewUser] = useState({})
     const [editUser, setEditUser] = useState({})
