@@ -12,7 +12,7 @@ import { CircularProgress } from '@mui/material';
 import { AppContext } from '../context/AppContext';
 
 
-export default function AllBookBrowser() {
+export default function AllBookBrowser(filterBy) {
 
   const {books, error} = useBook();
   const {book, _setBook} = useContext(AppContext)
@@ -34,12 +34,22 @@ export default function AllBookBrowser() {
       </Box>
     )
   }
+  console.log("allBookBrowser",filterBy)
+  let bookList = books
 
+  if (filterBy !== ''){
+    console.log("allBookBrowser",filterBy)
+    // console.log('testing books',books[0].subject)
+    bookList = books.filter((item) => item.subject === filterBy.filterBy);
+    console.log('bookList: ', bookList)
+  }
 
   return (
     <ImageList cols={3}>
-      
-      {books.map((item) => (
+        {/* {(bookList !== []) ? 
+        'test':''} */}
+
+        {bookList.map((item) => (
         <ImageListItem key={item.id} >
           <img
             src={`${item.img}`}
@@ -61,6 +71,35 @@ export default function AllBookBrowser() {
           />
         </ImageListItem>
       ))}
+
+
+
+
+
+
+
+      {/* {books.map((item) => (
+        <ImageListItem key={item.id} >
+          <img
+            src={`${item.img}`}
+            srcSet={`${item.img}`}
+            alt={item.title}
+            loading="lazy"
+          />
+          <ImageListItemBar
+            title={item.title}
+            subtitle={item.author}
+            actionIcon={
+              <IconButton
+                sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
+                aria-label={`info about ${item.title}`}
+              >
+                <BookmarkAddSharpIcon />
+              </IconButton>
+            }
+          />
+        </ImageListItem>
+      ))} */}
     </ImageList>
   );
 }

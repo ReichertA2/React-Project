@@ -4,7 +4,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 import useBook from '../hooks/useBook'
 import { CircularProgress } from '@mui/material';
 import Error from './Error';
-
+import AllBookBrowser from '../components/AllBookBrowser'
 import { AppContext } from '../context/AppContext';
 import { ShopTwoTwoTone } from '@mui/icons-material';
 import Box from '@mui/material/Box';
@@ -12,11 +12,10 @@ import Box from '@mui/material/Box';
 
 export default function ComboBox() {
     
-  
-    // for (let book of books){
+      const [label, setLabel] = useState('')
       const {books, error} = useBook();
       const {book, _setBook} = useContext(AppContext)
-      console.log(books)
+      // console.log(books)
       let subjects = [];
 
       if(!books){
@@ -47,7 +46,7 @@ export default function ComboBox() {
       //   subjects.push()
   
     subjects = getBookSubjects()
-  
+    // console.log("autocomplete: " , label)
   }
     
   
@@ -56,14 +55,17 @@ export default function ComboBox() {
     
   // const {books, error} = useBookCard();
   return (
-    
-    <Autocomplete
+    <>
+      <Autocomplete
       disablePortal
       id="combo-box-demo"
       options={subjects}
       sx={{ width: 300 }}
       renderInput={(params) => <TextField {...params} label="Subject" />}
-    />
+      onChange={(option,value,selectOption) => setLabel(value)}
+      />
+      <AllBookBrowser filterBy={label} />
+    </>
   );
 }
 
