@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
@@ -9,11 +9,13 @@ import useBookCard from '../hooks/useBookCard'
 import Box from '@mui/material/Box';
 import Error from './Error';
 import { CircularProgress } from '@mui/material';
+import { AppContext } from '../context/AppContext';
 
 
 export default function AllBookBrowser() {
 
   const {books, error} = useBook();
+  const {book, _setBook} = useContext(AppContext)
 
   if(!books){
     return(

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -15,34 +15,32 @@ import useBookCard from '../hooks/useBookCard';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
+import { AppContext } from '../context/AppContext';
 
-import ImageList from '@mui/material/ImageList';
-import ImageListItem from '@mui/material/ImageListItem';
-import ImageListItemBar from '@mui/material/ImageListItemBar';
-import IconButton from '@mui/material/IconButton';
-import BookmarkAddSharpIcon from '@mui/icons-material/BookmarkAddSharp';
+
 
 export default function BookCard() {
-    const {books, error} = useBookCard();
+    const { books, error } = useBookCard();
+    // const {book, _setBook} = useContext(AppContext)
 
-    if(!books){
-      return(
-      <Box sx={{display:"flex"}}>
-        <CircularProgress/>
-      </Box>
-  
-      )
-  
+    if (!books) {
+        return (
+            <Box sx={{ display: "flex" }}>
+                <CircularProgress />
+            </Box>
+
+        )
+
     }
-  
-    if (error){
-      return (
-        <Box sx={{display:"flex"}}>
-          <Error>{error}</Error>
-        </Box>
-      )
+
+    if (error) {
+        return (
+            <Box sx={{ display: "flex" }}>
+                <Error>{error}</Error>
+            </Box>
+        )
     }
-    
+
 
     return (
         <Card sx={{ maxWidth: 345 }}>
@@ -61,14 +59,14 @@ export default function BookCard() {
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                     {books.summary}
-            
+
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                     {books.pages}
-            
+
                 </Typography>
-                
-                
+
+
             </CardContent>
             <CardActions>
                 <Button size="small">Add</Button>
