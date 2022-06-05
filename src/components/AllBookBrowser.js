@@ -1,56 +1,79 @@
-import React, { useContext, useState, useEffect } from 'react';
-import ImageList from '@mui/material/ImageList';
-import ImageListItem from '@mui/material/ImageListItem';
-import ImageListItemBar from '@mui/material/ImageListItemBar';
-import IconButton from '@mui/material/IconButton';
-import BookmarkAddSharpIcon from '@mui/icons-material/BookmarkAddSharp';
-import useBook from '../hooks/useBook';
-import useBookCard from '../hooks/useBookCard'
-import Box from '@mui/material/Box';
-import Error from './Error';
-import { CircularProgress } from '@mui/material';
-import { AppContext } from '../context/AppContext';
-
+import React, { useContext, useState, useEffect } from "react";
+import ImageList from "@mui/material/ImageList";
+import ImageListItem from "@mui/material/ImageListItem";
+import ImageListItemBar from "@mui/material/ImageListItemBar";
+import IconButton from "@mui/material/IconButton";
+import BookmarkAddSharpIcon from "@mui/icons-material/BookmarkAddSharp";
+import useBook from "../hooks/useBook";
+import useBookCard from "../hooks/useBookCard";
+import Box from "@mui/material/Box";
+import Error from "./Error";
+import { CircularProgress } from "@mui/material";
+import { AppContext } from "../context/AppContext";
 
 export default function AllBookBrowser(filterBy) {
+  const { books, error } = useBook();
+  const { book, _setBook } = useContext(AppContext);
 
-  const {books, error} = useBook();
-  const {book, _setBook} = useContext(AppContext)
-
-  if(!books){
-    return(
-    <Box sx={{display:"flex"}}>
-      <CircularProgress/>
-    </Box>
-
-    )
-
+  if (!books) {
+    return (
+      <Box sx={{ display: "flex" }}>
+        <CircularProgress />
+      </Box>
+    );
   }
 
-  if (error){
+  if (error) {
     return (
-      <Box sx={{display:"flex"}}>
+      <Box sx={{ display: "flex" }}>
         <Error>{error}</Error>
       </Box>
-    )
+    );
   }
-  console.log("allBookBrowser",filterBy)
-  let bookList = books
+  console.log("allBookBrowser", filterBy);
 
-  if (filterBy !== ''){
-    console.log("allBookBrowser",filterBy)
+  if (filterBy.filterBy !== '' ) {
+    let bookList = [];
+
+    console.log("allBookBrowser", filterBy);
     // console.log('testing books',books[0].subject)
     bookList = books.filter((item) => item.subject === filterBy.filterBy);
-    console.log('bookList: ', bookList)
+    console.log("bookList: ", bookList);
+    return (
+      <ImageList cols={3}>
+        {/* {(bookList !== []) ? 
+        // 'test':''} */}
+
+        {bookList.map((item) => (
+          <ImageListItem key={item.id}>
+            <img
+              src={`${item.img}`}
+              srcSet={`${item.img}`}
+              alt={item.title}
+              loading="lazy"
+            />
+            <ImageListItemBar
+              title={item.title}
+              subtitle={item.author}
+              actionIcon={
+                <IconButton
+                  sx={{ color: "rgba(255, 255, 255, 0.54)" }}
+                  aria-label={`info about ${item.title}`}
+                >
+                  <BookmarkAddSharpIcon />
+                </IconButton>
+              }
+            />
+          </ImageListItem>
+        ))}
+      </ImageList>
+    );
   }
 
   return (
     <ImageList cols={3}>
-        {/* {(bookList !== []) ? 
-        'test':''} */}
-
-        {bookList.map((item) => (
-        <ImageListItem key={item.id} >
+      {books.map((item) => (
+        <ImageListItem key={item.id}>
           <img
             src={`${item.img}`}
             srcSet={`${item.img}`}
@@ -62,7 +85,7 @@ export default function AllBookBrowser(filterBy) {
             subtitle={item.author}
             actionIcon={
               <IconButton
-                sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
+                sx={{ color: "rgba(255, 255, 255, 0.54)" }}
                 aria-label={`info about ${item.title}`}
               >
                 <BookmarkAddSharpIcon />
@@ -71,35 +94,6 @@ export default function AllBookBrowser(filterBy) {
           />
         </ImageListItem>
       ))}
-
-
-
-
-
-
-
-      {/* {books.map((item) => (
-        <ImageListItem key={item.id} >
-          <img
-            src={`${item.img}`}
-            srcSet={`${item.img}`}
-            alt={item.title}
-            loading="lazy"
-          />
-          <ImageListItemBar
-            title={item.title}
-            subtitle={item.author}
-            actionIcon={
-              <IconButton
-                sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
-                aria-label={`info about ${item.title}`}
-              >
-                <BookmarkAddSharpIcon />
-              </IconButton>
-            }
-          />
-        </ImageListItem>
-      ))} */}
     </ImageList>
   );
 }
