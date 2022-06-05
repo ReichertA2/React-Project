@@ -12,7 +12,7 @@ import Box from '@mui/material/Box';
 
 export default function ComboBox() {
     
-      const [label, setLabel] = useState('')
+      const [label, setLabel] = useState(null)
       const {books, error} = useBook();
       const {book, _setBook} = useContext(AppContext)
       // console.log(books)
@@ -37,15 +37,15 @@ export default function ComboBox() {
     )
   }
   if (books){
-    const getBookSubjects = function(){ 
+    const getBookSubjects = ()=>{ 
         
       books.forEach((item)=> subjects.push(item.subject)) 
-      let shortendList = [...new Set(subjects)]
-      return shortendList
+      subjects = [...new Set(subjects)]
+      
     }
       //   subjects.push()
   
-    subjects = getBookSubjects()
+  getBookSubjects()
     // console.log("autocomplete: " , label)
   }
     

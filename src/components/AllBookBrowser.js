@@ -32,7 +32,7 @@ export default function AllBookBrowser(filterBy) {
   }
   console.log("allBookBrowser", filterBy);
 
-  if (filterBy.filterBy !== '' ) {
+  if (filterBy.filterBy !== null ) {
     let bookList = [];
 
     console.log("allBookBrowser", filterBy);
