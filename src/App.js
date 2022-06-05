@@ -51,14 +51,14 @@ function App() {
   return (
       <NavBar>
         {/* <AllBookBrowser/> */}
-        <LoginForm/>
-        <RegisterEditForm/>
-        
-        
-        {/* <FilterBySubject/>
+        {/* <LoginForm/>
+        <RegisterEditForm/> */}
         <AllBookBrowser/>
-        <ReadingList/>
         <BookCard></BookCard>
+
+        {/* <FilterBySubject/>
+        <ReadingList/>
+        
         <Switch></Switch> */}
         {/* <Button onClick={handleAPITest}>Test API Call</Button> */}
         {/* <Error style={{backgroundColor:'cornflowerblue'}}>This is an error Message</Error> */}
