@@ -37,7 +37,7 @@ export default function useDeleteUser(users) {
             const deleteUser=async()=>{
                 response = await apiUser.del(user.token, source.token);
                 if (response){
-                    setAlert({msg:`User: ${user.name} Deleted`, user:'success'})
+                    setAlert({msg:`User: ${user.first_name} Deleted`, user:'success'})
                     console.log("deleted: " , user.first_name)
                 }else if(response!==undefined && response ===false){
                     setAlert({msg:`Please Reauthorize Your Account`, user:'warning'})

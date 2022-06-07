@@ -78,7 +78,7 @@ export default function RegisterEditForm() {
         <>
             <form onSubmit={formik.handleSubmit}>
 
-                {!user ? <label>Register User Form</label> : <label>Edit User Form</label>}
+                {!user ? <label>Register</label> : <label>Edit Profile</label>}
 
 
 

@@ -14,7 +14,7 @@ export default function useEditUser(users) {
             const editUsers=async()=>{
                 response = await apiUser.put(user.token, users, source.token);
                 if (response){
-                    setAlert({msg:`User: ${users.name} Edited`, cat:'success'})
+                    setAlert({msg:`User: ${users.first_name} Edited`, cat:'success'})
                 }else if(response!==undefined && response ===false){
                     setAlert({msg:`Please Reauthorize Your Account`, cat:'warning'})
                     ///redirect to the login page

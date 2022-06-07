@@ -18,6 +18,7 @@ import AllBookBrowser from './components/AllBookBrowser';
 import ReadingList from './components/ReadingList';
 import FilterBySubject from './components/FilterBySubject';
 import AddRemoveBookMenu from './components/AddRemoveBookMenu'
+import SnackBar from './components/SnackBar';
 
 
 
@@ -49,10 +50,12 @@ const handleAPITest= async ()=>{
 
 function App() {
   return (
+    <>
+      <SnackBar/>
       <NavBar>
         {/* <AllBookBrowser/> */}
-        {/* <LoginForm/>
-        <RegisterEditForm/> */}
+        <LoginForm/> 
+        <RegisterEditForm/>
         {/* <AllBookBrowser/> */}
         {/* <BookCard></BookCard>  */}
         <FilterBySubject/>
@@ -67,6 +70,7 @@ function App() {
         
         <AddRemoveBookMenu/>
       </NavBar>
+    </>
   );
 }
 

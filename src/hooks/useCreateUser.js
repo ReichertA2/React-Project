@@ -21,7 +21,7 @@ export default function useCreateUser(users) {
                 response = await apiUser.post(users, source.token);
                 console.log('useCreateUser createUsers: ',response)
                 if (response){
-                    setAlert({msg:`Item: ${users.name} Created`, cat:'success'})
+                    setAlert({msg:`User: ${users.first_name} Created`, cat:'success'})
                     console.log('register success', response)
                 }else if(response!==undefined && response ===false){
                     setAlert({msg:`Please Reauthorize Your Account`, cat:'warning'})
