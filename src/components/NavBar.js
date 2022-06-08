@@ -26,6 +26,7 @@ import MenuItem from '@mui/material/MenuItem';
 import ThemeSwitch from './ThemeSwitch';
 import { AppContext } from '../context/AppContext';
 import getRandomInt from '../helpers';
+import Badge from '@mui/material/Badge';
 
 
 
@@ -190,7 +191,7 @@ export default function MiniDrawer({ children }) {
                     {
                         [{ label: 'Home', path: '', icon: <HomeSharpIcon  /> },
                         { label: 'Book Store', path: '', icon: <StoreSharpIcon  /> },
-                        { label: 'Reading List', path: '', icon: <AutoStoriesSharpIcon  /> },
+                        { label: 'Reading List', path: '', icon:<Badge badgeContent={cart?.length}><AutoStoriesSharpIcon/></Badge> },
 
                         ].map((navItem, index) => (
                             <ListItem key={navItem.label} disablePadding sx={{ display: 'block' }}>
