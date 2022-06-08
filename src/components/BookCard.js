@@ -19,11 +19,12 @@ import { AppContext } from '../context/AppContext';
 
 
 
-export default function BookCard() {
-    const { books, error } = useBookCard();
+export default function BookCard({item}) {
+    // const { books, error } = useBookCard();
+    const {addToCart, removeFromCart, removeAllFromCart, error}=useContext(AppContext)
     // const {book, _setBook} = useContext(AppContext)
 
-    if (!books) {
+    if (!item) {
         return (
             <Box sx={{ display: "flex" }}>
                 <CircularProgress />
@@ -47,30 +48,31 @@ export default function BookCard() {
             <CardMedia
                 component="img"
                 height="230"
-                image={books.img}
-                alt={books.title}
+                image={item.img}
+                alt={item.title}
             />
             <CardContent>
                 <Typography gutterBottom variant="h4" component="div">
-                    {books.title}
+                    {item.title}
                 </Typography>
                 <Typography gutterBottom variant="h6" component="div">
-                    {books.author}
+                    {item.author}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                    {books.summary}
+                    {item.summary}
 
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                    {books.pages}
+                    {item.pages}
 
                 </Typography>
 
 
             </CardContent>
             <CardActions>
-                <Button size="small">Add</Button>
-                <Button size="small">Remove</Button>
+                <Button key="add" onClick={()=>{addToCart(item)}}  size="small">Add</Button>
+                <Button key="delete" onClick={()=>{removeFromCart(item)}} size="small">Remove</Button>
+                
 
                 {/* below is the formGroup code that is here if you want to remove later */}
                 <FormGroup>
@@ -82,6 +84,7 @@ export default function BookCard() {
 
             </CardActions>
         </Card>
+        
     );
 }
 

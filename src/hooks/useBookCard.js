@@ -3,7 +3,7 @@ import apiBook from '../api/apiBook';
 import {CancelToken} from 'apisauce';
 import { AppContext } from '../context/AppContext'
 
-export default function useBook(id=32){
+export default function useBook(id){
     const [books, setBooks]=useState([])
 
     useEffect(

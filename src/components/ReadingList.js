@@ -1,66 +1,41 @@
-import React, { useContext, useState, useEffect } from 'react';
-import ImageList from '@mui/material/ImageList';
-import ImageListItem from '@mui/material/ImageListItem';
-import ImageListItemBar from '@mui/material/ImageListItemBar';
-import IconButton from '@mui/material/IconButton';
-import BookmarkRemoveSharpIcon from '@mui/icons-material/BookmarkRemoveSharp';
-import useBookCard from '../hooks/useBookCard';
-import Error from './Error';
-import { CircularProgress } from '@mui/material';
-import Box from '@mui/material/Box';
-
+import React, { useContext, useState, useEffect } from "react";
+import BookmarkRemoveSharpIcon from "@mui/icons-material/BookmarkRemoveSharp";
+import useBookCard from "../hooks/useBookCard";
+import Error from "./Error";
+import { CircularProgress } from "@mui/material";
+import Box from "@mui/material/Box";
+import BookCard from "../components/BookCard";
+import { AppContext } from "../context/AppContext";
 
 export default function ReadingList() {
-  const { books, error } = useBookCard();
+  const {cart,error} = useContext(AppContext)
+
   // const {book, _setBook} = useContext(AppContext)
 
-  if (!books) {
-      return (
-          <Box sx={{ display: "flex" }}>
-              <CircularProgress />
-          </Box>
-
-      )
-
+  if (!cart) {
+    return (
+      <Box sx={{ display: "flex" }}>
+        <CircularProgress />
+      </Box>
+    );
   }
 
   if (error) {
-      return (
-          <Box sx={{ display: "flex" }}>
-              <Error>{error}</Error>
-          </Box>
-      )
+    return (
+      <Box sx={{ display: "flex" }}>
+        <Error>{error}</Error>
+      </Box>
+    );
   }
-
-
-
+  console.log('readinglist', cart)
   return (
-
-    <ImageList cols={3}>
-      
-      
-        <ImageListItem key={books.id}>
-          <img
-            src={`${books.img}`}
-            srcSet={`${books.img}`}
-            alt={books.title}
-            loading="lazy"
-          />
-          <ImageListItemBar
-            title={books.title}
-            subtitle={books.author}
-            actionIcon={
-              <IconButton
-                sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
-                aria-label={`info about ${books.title}`}
-              >
-                <BookmarkRemoveSharpIcon />
-              </IconButton>
-            }
-          />
-        </ImageListItem>
-      
-    </ImageList>
+    <>
+      <Box sx={{ mb: 15 }}>
+        {[...new Set(cart?.map(JSON.stringify))]?.map(JSON.parse)?.map((item) => (
+            <BookCard key={item.id} item={item} />
+          ))}
+      </Box>
+    </>
   );
 }
 

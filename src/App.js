@@ -54,9 +54,10 @@ function App() {
       <SnackBar/>
       <NavBar>
         {/* <AllBookBrowser/> */}
-        <LoginForm/> 
-        <RegisterEditForm/>
+        {/* <LoginForm/> 
+        <RegisterEditForm/> */}
         {/* <AllBookBrowser/> */}
+        <ReadingList/>
         {/* <BookCard></BookCard>  */}
         <FilterBySubject/>
 
