@@ -44,10 +44,12 @@ export default function BookCard({item}) {
 
 
     return (
-        <Card sx={{ maxWidth: 345 }}>
+        <Card  sx={{ maxWidth: 350}}>
+
+        {/* <Card  sx={{ maxWidth: 350, display:"table-cell"}}> */}
             <CardMedia
                 component="img"
-                height="230"
+                height="500"
                 image={item.img}
                 alt={item.title}
             />
@@ -69,8 +71,8 @@ export default function BookCard({item}) {
 
 
             </CardContent>
-            <CardActions>
-                <Button key="add" onClick={()=>{addToCart(item)}}  size="small">Add</Button>
+            <CardActions sx={{}}>
+                <Button sx={{}} key="add" onClick={()=>{addToCart(item)}}  size="small">Add</Button>
                 <Button key="delete" onClick={()=>{removeFromCart(item)}} size="small">Remove</Button>
                 
 

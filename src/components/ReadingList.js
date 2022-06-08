@@ -32,7 +32,7 @@ export default function ReadingList() {
   return (
     <>
     <Button key="delete" onClick={()=>{ emptyCart()}} size="small">Remove All</Button>
-      <Box sx={{ mb: 15 }}>
+      <Box sx={{ mb: 15}}>
         {[...new Set(cart?.map(JSON.stringify))]?.map(JSON.parse)?.map((item) => (
             <BookCard key={item.id} item={item} />
           ))}
