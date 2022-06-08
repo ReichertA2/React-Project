@@ -41,20 +41,3 @@ export default function ReadingList() {
   );
 }
 
-// const book1={
-//   "title":"The Wonderful Wizard of Oz",
-//   "img":"https://res.cloudinary.com/dla9zwzty/image/upload/v1653508898/wizard_of_oz_gt9dfl.jpg",
-//   "id":1
-// }
-// const book2={
-//   "title":"Harry Potter and the philosopher's stone",
-//   "img":"https://res.cloudinary.com/dla9zwzty/image/upload/v1654094815/harry_potter_and_the_philosophers_stone_xgasfv.jpg",
-//   "id":2
-// }
-// const book3={
-//   "title":"Harry Potter and the Deathly Hallows",
-//   "img":"https://res.cloudinary.com/dla9zwzty/image/upload/v1654095009/harry_potter_and_the_deathly_hallows_ahsbgf.jpg",
-//   "id":3
-// }
-
-// const books=[book1, book2, book3]
