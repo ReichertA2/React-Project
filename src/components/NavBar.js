@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useContext } from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
@@ -16,8 +16,6 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-// import InboxIcon from '@mui/icons-material/MoveToInbox';
-// import MailIcon from '@mui/icons-material/Mail';
 import HomeSharpIcon from '@mui/icons-material/HomeSharp';
 import StoreSharpIcon from '@mui/icons-material/StoreSharp';
 import AutoStoriesSharpIcon from '@mui/icons-material/AutoStoriesSharp';
@@ -26,6 +24,8 @@ import Tooltip from '@mui/material/Tooltip';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import ThemeSwitch from './ThemeSwitch';
+import { AppContext } from '../context/AppContext';
+import getRandomInt from '../helpers';
 
 
 
@@ -102,6 +102,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 export default function MiniDrawer({ children }) {
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
+    const {user, cart} = useContext(AppContext)
 
     const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -148,7 +149,7 @@ export default function MiniDrawer({ children }) {
                     <Box sx={{ flexGrow: 0, }}>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                            <Avatar alt={user?.first_name ?? "Please Login"} src={user?.icon ? `https://avatars.dicebear.com/api/avataaars/${user.icon}.svg`:`https://avatars.dicebear.com/api/avataaars/${getRandomInt(0,1000)}.svg`}/>
                             </IconButton>
                         </Tooltip>
                         <Menu
