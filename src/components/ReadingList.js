@@ -6,9 +6,10 @@ import { CircularProgress } from "@mui/material";
 import Box from "@mui/material/Box";
 import BookCard from "../components/BookCard";
 import { AppContext } from "../context/AppContext";
+import Button from '@mui/material/Button';
 
 export default function ReadingList() {
-  const {cart,error} = useContext(AppContext)
+  const {cart,error, emptyCart} = useContext(AppContext)
 
   // const {book, _setBook} = useContext(AppContext)
 
@@ -30,6 +31,7 @@ export default function ReadingList() {
   console.log('readinglist', cart)
   return (
     <>
+    <Button key="delete" onClick={()=>{ emptyCart()}} size="small">Remove All</Button>
       <Box sx={{ mb: 15 }}>
         {[...new Set(cart?.map(JSON.stringify))]?.map(JSON.parse)?.map((item) => (
             <BookCard key={item.id} item={item} />
