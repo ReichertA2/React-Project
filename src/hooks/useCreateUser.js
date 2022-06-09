@@ -26,6 +26,7 @@ export default function useCreateUser(users) {
                 if (response){
                     setAlert({msg:`User: ${users.first_name} Created`, cat:'success'})
                     console.log('register success', response)
+                    navigate('/')
                 }else if(response!==undefined && response ===false){
                     setAlert({msg:`Please Reauthorize Your Account`, cat:'warning'})
                     navigate('/')

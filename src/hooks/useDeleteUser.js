@@ -42,6 +42,7 @@ export default function useDeleteUser(users) {
                 if (response){
                     setAlert({msg:`User: ${user.first_name} Deleted`, user:'success'})
                     console.log("deleted: " , user.first_name)
+                    navigate('/')
                 }else if(response!==undefined && response ===false){
                     setAlert({msg:`Please Reauthorize Your Account`, user:'warning'})
                     navigate('/')
