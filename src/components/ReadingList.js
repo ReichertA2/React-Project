@@ -1,6 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
-import BookmarkRemoveSharpIcon from "@mui/icons-material/BookmarkRemoveSharp";
-import useBookCard from "../hooks/useBookCard";
+import React, { useContext} from "react";
 import Error from "./Error";
 import { CircularProgress } from "@mui/material";
 import Box from "@mui/material/Box";
@@ -11,7 +9,7 @@ import Button from '@mui/material/Button';
 export default function ReadingList() {
   const {cart,error, emptyCart} = useContext(AppContext)
 
-  // const {book, _setBook} = useContext(AppContext)
+  
 
   if (!cart) {
     return (

@@ -1,27 +1,3 @@
-// import {useEffect, useState} from 'react';
-// import apiUser from '../api/apiUser';
-// import {CancelToken} from 'apisauce';
-
-// export default function useDeleteUser(){
-//     const [users, setusers]=useState([])
-
-//     useEffect(
-//         ()=>{
-//             const source=CancelToken.source();
-//             const deleteUsers=async()=>{
-//                 const response = await apiUser.del(source.token, CancelToken)
-//                 setusers(response)
-//             }
-//             deleteUsers()
-//             return ()=>{source.cancel();}
-
-//         },
-//         []
-//     )
-
-//     return users
-// }
-
 import { useEffect, useContext } from 'react';
 import { CancelToken } from 'apisauce';
 import apiUser  from '../api/apiUser';
@@ -46,7 +22,7 @@ export default function useDeleteUser(users) {
                 }else if(response!==undefined && response ===false){
                     setAlert({msg:`Please Reauthorize Your Account`, user:'warning'})
                     navigate('/')
-                    ///redirect to the login page
+                   
                 }
             }
             if(user?.first_name){

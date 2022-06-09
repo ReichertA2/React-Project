@@ -1,12 +1,9 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState } from 'react';
 import * as Yup from "yup";
 import { useFormik } from 'formik';
 import Button from '../components/Button';
 import TextField from '@mui/material/TextField';
-import DeleteIcon from '@mui/icons-material/Delete';
 import { AppContext } from '../context/AppContext';
-import Error from '../components/Error';
-import useDeleteUser from '../hooks/useDeleteUser';
 import useCreateUser from '../hooks/useCreateUser';
 import useEditUser from '../hooks/useEditUser';
 
@@ -35,7 +32,7 @@ export default function RegisterEditForm() {
 
     useCreateUser(newUser)
     useEditUser(editUser)
-    // useDeleteUser(deleteUser)
+    
 
 
     const initialValues = {

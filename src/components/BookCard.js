@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext} from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -8,22 +8,16 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Error from './Error';
 import { CircularProgress } from '@mui/material';
-import useBookCard from '../hooks/useBookCard';
-
-
-
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import { AppContext } from '../context/AppContext';
 
-
-
 export default function BookCard({item}) {
 
 
     
-    const {addToCart, removeFromCart, removeAllFromCart, error}=useContext(AppContext)
+    const {addToCart, removeFromCart, error}=useContext(AppContext)
     // const {book, _setBook} = useContext(AppContext)
 
     if (!item) {

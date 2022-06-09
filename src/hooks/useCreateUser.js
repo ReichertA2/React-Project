@@ -7,7 +7,7 @@ import {useNavigate} from 'react-router-dom';
 
 
 export default function useCreateUser(users) {   
-    let response
+    
     const {user, setAlert} =useContext(AppContext)
     const navigate = useNavigate()
 

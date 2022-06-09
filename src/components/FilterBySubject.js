@@ -1,12 +1,10 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import useBook from '../hooks/useBook'
 import { CircularProgress } from '@mui/material';
 import Error from './Error';
 import AllBookBrowser from '../components/AllBookBrowser'
-import { AppContext } from '../context/AppContext';
-import { ShopTwoTwoTone } from '@mui/icons-material';
 import Box from '@mui/material/Box';
 
 
@@ -14,7 +12,7 @@ export default function ComboBox() {
     
       const [label, setLabel] = useState(null)
       const {books, error} = useBook();
-      const {book, _setBook} = useContext(AppContext)
+  
       // console.log(books)
       let subjects = [];
 
@@ -71,10 +69,3 @@ export default function ComboBox() {
 
 
 
-
-// [
-  
-//   { label: 'Courage and Bravery'},
-//   { label: 'death'},
-  
-// ]

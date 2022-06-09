@@ -1,16 +1,14 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext } from "react";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import ImageListItemBar from "@mui/material/ImageListItemBar";
 import IconButton from "@mui/material/IconButton";
 import BookmarkAddSharpIcon from "@mui/icons-material/BookmarkAddSharp";
 import useBook from "../hooks/useBook";
-import useBookCard from "../hooks/useBookCard";
 import Box from "@mui/material/Box";
 import Error from "./Error";
 import { CircularProgress } from "@mui/material";
 import { AppContext } from "../context/AppContext";
-import {Link} from 'react-router-dom';
 import {useNavigate} from 'react-router-dom';
 import InfoIcon from '@mui/icons-material/Info';
 

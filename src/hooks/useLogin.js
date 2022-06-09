@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import {useEffect} from 'react'
 import {getUser} from '../api/apiBasicAuth';
 import { CancelToken } from 'apisauce';
 import {useNavigate} from 'react-router-dom';
