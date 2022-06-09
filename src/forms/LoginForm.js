@@ -23,7 +23,7 @@ const initialValues={
 
 
 export default function LoginForm(){
-    const {setUser} = useContext(AppContext);
+    const {user, setUser} = useContext(AppContext);
     const [loginCreds, setLoginCreds] = useState({});
     const [error, setError] = useState('')
     
@@ -77,7 +77,9 @@ export default function LoginForm(){
             <Button type="submit" sx={{width:"100%"}}>Login</Button>
             <Error>{error}</Error>
         </form>
-        <Link to='/RegisterEdit' style={{display:"flex", color:'inherit', textDecoration:'none'}}><Button type="submit" sx={{width:"100%", mt:2}}>Register</Button></Link>
+        
+        <Link to='/RegisterEdit' style={{display:"flex", color:'inherit', textDecoration:'none'}}><Button type="submit" sx={{width:"100%", mt:2}}>{user.first_name?"Edit Profile":"Register"}</Button></Link> :
+        
         </>
     )
 

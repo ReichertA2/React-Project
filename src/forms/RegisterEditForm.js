@@ -46,7 +46,7 @@ export default function RegisterEditForm() {
     }
 
     const handleSubmit = (values, resetForm) => {
-        if (!user) {
+        if (!user.first_name) {
             setNewUser(values)
             console.log('Registering')
         } else {
@@ -78,7 +78,7 @@ export default function RegisterEditForm() {
         <>
             <form onSubmit={formik.handleSubmit}>
 
-                {!user ? <label>Register</label> : <label>Edit Profile</label>}
+                {!user.first_name ? <label>Register</label> : <label>Edit Profile</label>}
 
 
 
@@ -136,7 +136,7 @@ export default function RegisterEditForm() {
                     error={formik.touched.password && Boolean(formik.errors.password)}
                     helperText={formik.touched.password && formik.errors.password}
                 />
-                {!user ?
+                {!user.first_name ?
                     <Button type="submit" sx={{ width: "100%" }}>Register</Button> :
                     <div>
                         <Button type="submit" sx={{ width: "100%" }}>Edit Profile</Button>
@@ -148,7 +148,7 @@ export default function RegisterEditForm() {
 
             </form>
             
-            {user ? <Button type="button" color="error" onClick={() => handleDelete()} sx={{ width: "100%", my: 1 }}>Delete User</Button> : ''}
+            {user.first_name ? <Button type="button" color="error" onClick={() => handleDelete()} sx={{ width: "100%", my: 1 }}>Delete User</Button> : ''}
         </>
     )
 

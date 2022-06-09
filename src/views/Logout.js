@@ -9,10 +9,9 @@ export default function Logout() {
             setUser({})
         },[setUser]
     )
-
   return (
     <>
-        <Navigate to="/login"/>
+      <Navigate to="/login"/>
     </>
   )
 }
