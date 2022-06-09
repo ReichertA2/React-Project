@@ -2,14 +2,17 @@ import { useEffect, useContext } from 'react'
 import { CancelToken } from 'apisauce'
 import apiUser  from '../api/apiUser';
 import { AppContext } from '../context/AppContext'
+import {useNavigate} from 'react-router-dom';
 
 
 export default function useCreateUser(users) {   
     let response
     const {user, setAlert} =useContext(AppContext)
+    const navigate = useNavigate()
 
     useEffect(
         ()=>{
+            let response
             const source = CancelToken.source()
             // console.log('useCreateUser useEffect: ',user.token)
 
@@ -25,6 +28,7 @@ export default function useCreateUser(users) {
                     console.log('register success', response)
                 }else if(response!==undefined && response ===false){
                     setAlert({msg:`Please Reauthorize Your Account`, cat:'warning'})
+                    navigate('/')
                     ///redirect to the login page
                 }
             }

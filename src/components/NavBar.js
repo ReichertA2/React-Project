@@ -27,6 +27,9 @@ import ThemeSwitch from './ThemeSwitch';
 import { AppContext } from '../context/AppContext';
 import getRandomInt from '../helpers';
 import Badge from '@mui/material/Badge';
+import {Link} from 'react-router-dom';
+import RegLink from '@mui/material/Link';
+import ConnectWithoutContactIcon from '@mui/icons-material/ConnectWithoutContact';
 
 
 
@@ -142,7 +145,9 @@ export default function MiniDrawer({ children }) {
                         <MenuIcon />
                     </IconButton>
                     <Box sx={{ mr: 3 }}>
-                    <img height='45px' alt="book logo" className='p2' src="https://res.cloudinary.com/dla9zwzty/image/upload/v1654099900/logo_s8tcss.jpg"/>
+                        <Link to='/'>
+                            <img height='45px' alt="book logo" className='p2' src="https://res.cloudinary.com/dla9zwzty/image/upload/v1654099900/logo_s8tcss.jpg"/>
+                        </Link>
                     </Box>
                     <Typography sx={{ flexGrow: 1 }} variant="h6" noWrap component="div">
                         Books
@@ -169,13 +174,23 @@ export default function MiniDrawer({ children }) {
                             open={Boolean(anchorElUser)}
                             onClose={handleCloseUserMenu}
                         >
-
+                            {user?
                             <MenuItem onClick={handleCloseUserMenu}>
                                 <Typography textAlign="center">
+                                <Link to='/logout'  style={{textDecoration:'none', color:'black'}}>
                                     Logout
+                                </Link>
                                 </Typography>
                             </MenuItem>
-
+                            :
+                            <MenuItem onClick={handleCloseUserMenu}>
+                            <Typography textAlign="center">
+                            <Link to='/login' style={{textDecoration:'none', color:'black'}}>
+                              Login
+                            </Link>
+                            </Typography>
+                          </MenuItem>
+                        }
                         </Menu>
                     </Box>
                 </Toolbar>
@@ -189,19 +204,14 @@ export default function MiniDrawer({ children }) {
                 <Divider />
                 <List>
                     {
-                        [{ label: 'Home', path: '', icon: <HomeSharpIcon  /> },
-                        { label: 'Book Store', path: '', icon: <StoreSharpIcon  /> },
-                        { label: 'Reading List', path: '', icon:<Badge badgeContent={cart?.length}><AutoStoriesSharpIcon/></Badge> },
+                        [{ label: 'Home', path: '/', icon: <HomeSharpIcon  /> },
+                        { label: 'Book Store', path: '/Browse', icon: <StoreSharpIcon  /> },
+                        { label: 'Reading List', path: '/ReadingList', icon:<Badge badgeContent={cart?.length}><AutoStoriesSharpIcon/></Badge> },
 
                         ].map((navItem, index) => (
-                            <ListItem key={navItem.label} disablePadding sx={{ display: 'block' }}>
-                                <ListItemButton
-                                    sx={{
-                                        minHeight: 48,
-                                        justifyContent: open ? 'initial' : 'center',
-                                        px: 2.5,
-                                    }}
-                                >
+                            <ListItem key={navItem.label} disablePadding sx={{ display: 'block', ml:2, mb:2 }}>
+                                <Link to={navItem.path} style={{display:"flex", color:'inherit', textDecoration:'none'}}>
+                                
                                     <ListItemIcon
                                         sx={{
                                             minWidth: 0,
@@ -212,9 +222,17 @@ export default function MiniDrawer({ children }) {
                                         {navItem.icon}
                                     </ListItemIcon>
                                     <ListItemText primary={navItem.label} sx={{ opacity: open ? 1 : 0 }} />
-                                </ListItemButton>
+                                </Link>
                             </ListItem>
                         ))}
+                        <ListItem button key={"Social"}>
+                            <RegLink href="http://google.com" color="inherit" underline="none" sx={{display:"flex"}}>
+                                <ListItemIcon>
+                                    <ConnectWithoutContactIcon/>
+                                </ListItemIcon>
+                                <ListItemText primary={"Social"} />
+                            </RegLink>
+                        </ListItem>
                 </List>
                 {open?
                 <ListItem sx={{position:"absolute", bottom:"0px", justifyContent:"center"}}>
