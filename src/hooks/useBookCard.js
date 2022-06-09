@@ -2,8 +2,9 @@ import {useEffect, useState} from 'react';
 import apiBook from '../api/apiBook';
 import {CancelToken} from 'apisauce';
 import { AppContext } from '../context/AppContext'
+import { CollectionsOutlined } from '@mui/icons-material';
 
-export default function useBook(id){
+export default function useBookCard(id){
     const [books, setBooks]=useState([])
 
     useEffect(
@@ -11,7 +12,10 @@ export default function useBook(id){
             const source=CancelToken.source();
             const getBooks=async()=>{
                 const response = await apiBook.getOneBook(id,source.token)
+                console.log('useBookCard success ', id, response.books)
+
                 setBooks(response)
+                console.log('useBookCard success ', id)
             }
             getBooks()
             return ()=>{source.cancel();}
@@ -19,6 +23,6 @@ export default function useBook(id){
         },
         [id]
     )
-
+    console.log('useBookCard',books)
     return books
 }

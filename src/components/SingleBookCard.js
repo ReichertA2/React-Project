@@ -16,17 +16,21 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import { AppContext } from '../context/AppContext';
+import { useParams } from 'react-router-dom';
 
 
 
-export default function BookCard({item}) {
-
-
+export default function SingleBookCard() {
+    const {itemId} =  useParams()
+  
+    const {books, error} = useBookCard(itemId);
+    console.log('SingleBookCard' , books)
     
-    const {addToCart, removeFromCart, removeAllFromCart, error}=useContext(AppContext)
-    // const {book, _setBook} = useContext(AppContext)
+ 
 
-    if (!item) {
+    if (!books) {
+        console.log('no item')
+
         return (
             <Box sx={{ display: "flex" }}>
                 <CircularProgress />
@@ -51,43 +55,42 @@ export default function BookCard({item}) {
             <CardMedia
                 component="img"
                 height="500"
-                image={item.img}
-                alt={item.title}
+                image={books.img}
+                alt={books.title}
             />
             <CardContent>
                 <Typography gutterBottom variant="h4" component="div">
-                    {item.title}
+                    {books.title}
                 </Typography>
                 <Typography gutterBottom variant="h6" component="div">
-                    {item.author}
+                    {books.author}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                    {item.summary}
+                    {books.summary}
 
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                    {item.pages}
+                    {books.pages}
 
                 </Typography>
 
 
             </CardContent>
-            <CardActions sx={{}}>
+            {/* <CardActions sx={{}}>
                 <Button sx={{}} key="add" onClick={()=>{addToCart(item)}}  size="small">Add</Button>
-                <Button key="delete" onClick={()=>{removeFromCart(item)}} size="small">Remove</Button>
+                <Button key="delete" onClick={()=>{removeFromCart(item)}} size="small">Remove</Button> */}
                 
 
                 {/* below is the formGroup code that is here if you want to remove later */}
-                <FormGroup>
+                {/* <FormGroup>
                     <FormControlLabel control={<Switch defaultChecked />} label="Read/Unread" />
-                </FormGroup>
+                </FormGroup> */}
 
                 {/* <Button size="small">Read</Button>
         <Button size="small">Unread</Button> */}
 
-            </CardActions>
+            {/* </CardActions> */}
         </Card>
         
     );
 }
-

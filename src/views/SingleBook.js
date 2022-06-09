@@ -1,8 +1,10 @@
 import React from 'react'
-import BookCard from '../components/BookCard'
+import SingleBookCard from '../components/SingleBookCard'
+
 
 export default function SingleBook() {
+
   return (
-    <BookCard/>
+    <SingleBookCard />
   )
 }

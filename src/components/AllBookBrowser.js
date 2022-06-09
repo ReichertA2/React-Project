@@ -10,11 +10,16 @@ import Box from "@mui/material/Box";
 import Error from "./Error";
 import { CircularProgress } from "@mui/material";
 import { AppContext } from "../context/AppContext";
+import {Link} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
+import InfoIcon from '@mui/icons-material/Info';
+
 
 export default function AllBookBrowser(filterBy) {
   const { books, error } = useBook();
   const { book, _setBook } = useContext(AppContext);
   const {addToCart, setAlert} = useContext(AppContext)
+  const navigate = useNavigate()
 
   const handleAddToCart=(item)=>{
     addToCart(item)
@@ -52,6 +57,8 @@ export default function AllBookBrowser(filterBy) {
         // 'test':''} */}
 
         {bookList.map((item) => (
+
+            
           <ImageListItem key={item.id}>
             <img
               src={`${item.img}`}
@@ -62,7 +69,7 @@ export default function AllBookBrowser(filterBy) {
             <ImageListItemBar
               title={item.title}
               subtitle={item.author}
-              actionIcon={
+              actionIcon={<>
                 <IconButton
                   sx={{ color: "rgba(255, 255, 255, 0.54)" }}
                   aria-label={`info about ${item.title}`}
@@ -70,10 +77,16 @@ export default function AllBookBrowser(filterBy) {
                   
                 >
                   <BookmarkAddSharpIcon />
-                  <BookmarkAddSharpIcon />
 
                 </IconButton>
-                
+                 <IconButton
+                 sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
+                 aria-label={`info about ${item.title}`}
+                 onClick={()=>navigate('/SingleBook/'+item.id)}
+               >
+                 <InfoIcon />
+               </IconButton>
+               </>
               }
             />
           </ImageListItem>
@@ -95,7 +108,7 @@ export default function AllBookBrowser(filterBy) {
           <ImageListItemBar
             title={item.title}
             subtitle={item.author}
-            actionIcon={
+            actionIcon={<>
               <IconButton
                 sx={{ color: "rgba(255, 255, 255, 0.54)" }}
                 aria-label={`info about ${item.title}`}
@@ -103,9 +116,17 @@ export default function AllBookBrowser(filterBy) {
               >
                 <BookmarkAddSharpIcon />
               </IconButton>
-            }
+              <IconButton
+              sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
+              aria-label={`info about ${item.title}`}
+              onClick={()=>navigate('/SingleBook/'+item.id)}
+            >
+              <InfoIcon />
+            </IconButton>
+            </> }
           />
         </ImageListItem>
+        
       ))}
     </ImageList>
   );

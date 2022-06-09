@@ -47,7 +47,7 @@ function App() {
             <Route path="/ReadingList" element={<ReadingListView/>}/>
             <Route path="/Browse" element={<SubjectFilter/>}/>
             <Route path="/RegisterEdit" element={<RegisterAndEdit/>}/>
-            <Route path="/SingleBook" element={<SingleBook/>}/>
+            <Route path="/SingleBook/:itemId" element={<SingleBook/>}/>
             <Route path="/login" element={<Login/>}/>
             <Route path="/logout" element={<Logout/>}/>
 
