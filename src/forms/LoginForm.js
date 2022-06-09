@@ -6,6 +6,7 @@ import TextField from '@mui/material/TextField';
 import { AppContext } from '../context/AppContext';
 import Error from '../components/Error';
 import useLogin from '../hooks/useLogin';
+import {Link} from 'react-router-dom';
 
 //Defining our yup validation
 const FormSchema=Yup.object(
@@ -44,6 +45,7 @@ export default function LoginForm(){
     })
 
     return(
+        <>
         <form onSubmit={formik.handleSubmit}>
             <TextField
                 id="email"
@@ -75,6 +77,8 @@ export default function LoginForm(){
             <Button type="submit" sx={{width:"100%"}}>Login</Button>
             <Error>{error}</Error>
         </form>
+        <Link to='/RegisterEdit' style={{display:"flex", color:'inherit', textDecoration:'none'}}><Button type="submit" sx={{width:"100%", mt:2}}>Register</Button></Link>
+        </>
     )
 
 }

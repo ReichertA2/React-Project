@@ -180,6 +180,7 @@ export default function MiniDrawer({ children }) {
                                 <Link to='/logout'  style={{textDecoration:'none', color:'black'}}>
                                     Logout
                                 </Link>
+                               
                                 </Typography>
                             </MenuItem>
                             :

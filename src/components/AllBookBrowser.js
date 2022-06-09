@@ -70,7 +70,10 @@ export default function AllBookBrowser(filterBy) {
                   
                 >
                   <BookmarkAddSharpIcon />
+                  <BookmarkAddSharpIcon />
+
                 </IconButton>
+                
               }
             />
           </ImageListItem>

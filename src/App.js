@@ -27,6 +27,7 @@ import Login from './views/Login';
 import ReadingListView from './views/ReadingListView'
 import RegisterAndEdit from './views/RegisterAndEdit'
 import SubjectFilter from './views/SubjectFilter'
+import SingleBook from './views/SingleBook'
 
 const HomePage=()=>{return(<h1>Welcome to the Marvelous BookStore!</h1>)}
 
@@ -46,6 +47,7 @@ function App() {
             <Route path="/ReadingList" element={<ReadingListView/>}/>
             <Route path="/Browse" element={<SubjectFilter/>}/>
             <Route path="/RegisterEdit" element={<RegisterAndEdit/>}/>
+            <Route path="/SingleBook" element={<SingleBook/>}/>
             <Route path="/login" element={<Login/>}/>
             <Route path="/logout" element={<Logout/>}/>
 
