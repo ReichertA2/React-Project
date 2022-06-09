@@ -20,6 +20,17 @@ export default function BookCard({item}) {
     const {addToCart, removeFromCart, error}=useContext(AppContext)
     // const {book, _setBook} = useContext(AppContext)
 
+
+
+    if (error) {
+        return (
+            <Box sx={{ display: "flex" }}>
+                <Error>{error}</Error>
+            </Box>
+        )
+    }
+
+    
     if (!item) {
         return (
             <Box sx={{ display: "flex" }}>
@@ -30,14 +41,7 @@ export default function BookCard({item}) {
 
     }
 
-    if (error) {
-        return (
-            <Box sx={{ display: "flex" }}>
-                <Error>{error}</Error>
-            </Box>
-        )
-    }
-
+  
     return (
         <Card  sx={{ maxWidth: 350}}>
 

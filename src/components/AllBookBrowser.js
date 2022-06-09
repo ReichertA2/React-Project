@@ -25,13 +25,7 @@ export default function AllBookBrowser(filterBy) {
     console.log("addToCart", item)
   }
 
-  if (!books) {
-    return (
-      <Box sx={{ display: "flex" }}>
-        <CircularProgress />
-      </Box>
-    );
-  }
+
 
   if (error) {
     return (
@@ -41,6 +35,17 @@ export default function AllBookBrowser(filterBy) {
     );
   }
   console.log("allBookBrowser", filterBy);
+
+  
+  if (!books) {
+    return (
+      <Box sx={{ display: "flex" }}>
+        <CircularProgress />
+      </Box>
+    );
+  }
+
+ 
 
   if (filterBy.filterBy !== null ) {
     let bookList = [];

@@ -16,6 +16,14 @@ export default function ComboBox() {
       // console.log(books)
       let subjects = [];
 
+      if (error){
+        return (
+          <Box sx={{display:"flex"}}>
+            <Error>{error}</Error>
+          </Box>
+        )
+      }
+
       if(!books){
         return(
         <Box sx={{display:"flex"}}>
@@ -27,13 +35,7 @@ export default function ComboBox() {
       }
 
       
-  if (error){
-    return (
-      <Box sx={{display:"flex"}}>
-        <Error>{error}</Error>
-      </Box>
-    )
-  }
+  
   if (books){
     const getBookSubjects = ()=>{ 
         

@@ -23,6 +23,14 @@ export default function SingleBookCard() {
     
  
 
+    if (error) {
+        return (
+            <Box sx={{ display: "flex" }}>
+                <Error>{error}</Error>
+            </Box>
+        )
+    }
+
     if (!books) {
         console.log('no item')
 
@@ -35,13 +43,7 @@ export default function SingleBookCard() {
 
     }
 
-    if (error) {
-        return (
-            <Box sx={{ display: "flex" }}>
-                <Error>{error}</Error>
-            </Box>
-        )
-    }
+  
 
     return (
         <Card  sx={{ maxWidth: 350}}>

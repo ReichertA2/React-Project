@@ -11,13 +11,6 @@ export default function ReadingList() {
 
   
 
-  if (!cart) {
-    return (
-      <Box sx={{ display: "flex" }}>
-        <CircularProgress />
-      </Box>
-    );
-  }
 
   if (error) {
     return (
@@ -26,6 +19,16 @@ export default function ReadingList() {
       </Box>
     );
   }
+  
+  if (!cart) {
+    return (
+      <Box sx={{ display: "flex" }}>
+        <CircularProgress />
+      </Box>
+    );
+  }
+
+  
   console.log('readinglist', cart)
   return (
     <>
