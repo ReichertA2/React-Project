@@ -167,6 +167,8 @@ export default function MiniDrawer({ children }) {
                 />
               </IconButton>
             </Tooltip>
+            {/* <h3>{user.first_name}</h3> */}
+
             <Menu
               sx={{ mt: "45px" }}
               id="menu-appbar"
@@ -183,7 +185,17 @@ export default function MiniDrawer({ children }) {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {user? 
+              {user? <section>
+                <MenuItem >
+                  <Typography textAlign="center">
+                    <Link
+                      to="/RegisterEdit"
+                      style={{ textDecoration: "none", color: "black" }}
+                    >
+                      Register/Edit Profile
+                    </Link>
+                  </Typography>
+                </MenuItem>
                 <MenuItem onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">
                     <Link
@@ -194,6 +206,7 @@ export default function MiniDrawer({ children }) {
                     </Link>
                   </Typography>
                 </MenuItem>
+                </section>
                : 
                 <MenuItem onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">
