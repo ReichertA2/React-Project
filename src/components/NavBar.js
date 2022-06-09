@@ -185,7 +185,7 @@ export default function MiniDrawer({ children }) {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {user? <section>
+              {user.first_name? <section>
                 <MenuItem >
                   <Typography textAlign="center">
                     <Link

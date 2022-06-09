@@ -5,6 +5,7 @@ import { AppContext } from '../context/AppContext'
 import {useNavigate} from 'react-router-dom';
 
 
+
 export default function useCreateUser(users) {   
     let response
     const {user, setAlert} =useContext(AppContext)
@@ -24,6 +25,7 @@ export default function useCreateUser(users) {
                 response = await apiUser.post(users, source.token);
                 console.log('useCreateUser createUsers: ',response)
                 if (response){
+                
                     setAlert({msg:`User: ${users.first_name} Created`, cat:'success'})
                     console.log('register success', response)
                     navigate('/')
