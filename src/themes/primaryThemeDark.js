@@ -6,13 +6,13 @@ export const themeOptions = {
         type: 'dark',
         mode: 'dark',
         primary: {
-            main: '#9e1550',
+            main: '#3F616D',
         },
         secondary: {
-            main: '#f50057',
+            main: '#3F616D',
         },
         warning: {
-            main: '#ff9800',
+            main: '#3F616D',
         },
     },
 };

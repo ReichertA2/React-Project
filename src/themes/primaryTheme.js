@@ -8,10 +8,10 @@ export const themeOptions = {
             main: '#3F616D',
         },
         secondary: {
-            main: '#A272CC',
+            main: '#3F616D',
         },
         warning: {
-            main: '#E47C8C',
+            main: '#3F616D',
         },
     },
 };

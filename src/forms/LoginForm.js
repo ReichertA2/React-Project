@@ -7,6 +7,8 @@ import { AppContext } from '../context/AppContext';
 import Error from '../components/Error';
 import useLogin from '../hooks/useLogin';
 import {Link} from 'react-router-dom';
+import Grid from '@mui/material/Grid';
+
 
 //Defining our yup validation
 const FormSchema=Yup.object(
@@ -45,27 +47,29 @@ export default function LoginForm(){
     })
 
     return(
+        <Grid align='center'>
         <>
-        <form onSubmit={formik.handleSubmit}>
-            <TextField
+
+        <form style={{}} onSubmit={formik.handleSubmit}>
+            <TextField 
                 id="email"
                 name="email"
-                fullWidth
-                sx={{mb:2, mt:2}}
-                label="email"
+                // fullWidth
+                sx={{mb:2, mt:2, width:"80%"}}
+                label="email" 
                 placeholder="email"
                 value={formik.values.email}
                 onChange={formik.handleChange}
                 error={formik.touched.email && Boolean(formik.errors.email)}
                 helperText={formik.touched.email && formik.errors.email}            
             />
-
+<div>
             <TextField
                 id="password"
                 name="password"
                 type="password"
-                fullWidth
-                sx={{mb:2}}
+                // fullWidth
+                sx={{mb:2, width:"80%"}}
                 label="password"
                 placeholder="password"
                 value={formik.values.password}
@@ -74,13 +78,17 @@ export default function LoginForm(){
                 helperText={formik.touched.password && formik.errors.password}            
             />
 
-            <Button type="submit" sx={{width:"100%"}}>Login</Button>
-            <Error>{error}</Error>
+           
+            </div>
         </form>
+        <Button type="submit" sx={{width:"80%"}}>Login</Button>
+            
+            <Error>{error}</Error>
         
-        <Link to='/RegisterEdit' style={{display:"flex", color:'inherit', textDecoration:'none'}}><Button type="submit" sx={{width:"100%", mt:2}}>{user.first_name?"Edit Profile":"Register"}</Button></Link> :
+        <Link to='/RegisterEdit' style={{ textDecoration:'none'}}><Button type="submit" sx={{width:"80%", mt:2}}>{user.first_name?"Edit Profile":"Register"}</Button></Link> 
         
         </>
+        </Grid>
     )
 
 }
