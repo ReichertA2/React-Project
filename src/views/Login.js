@@ -9,7 +9,7 @@ export default function Login() {
 
   return (
   
-    <Box  sx={{width:500, height:500, padding:5, margin:'auto', backgroundColor:'rgba(0,0,0,0.05)', marginTop:"5%"}}>
+    <Box  sx={{width:500, height:500, padding:5, margin:'auto', backgroundColor:'rgba(0,0,0,0.4)', marginTop:"5%"}}>
       <h4 style={{textAlign: 'center', fontSize:'2rem'}}>Login</h4>
       <LoginForm />
     </Box>
