@@ -5,13 +5,13 @@ export const themeOptions = {
     palette: {
         type: 'dark',
         primary: {
-            main: '#9e1550',
+            main: '#3F616D',
         },
         secondary: {
-            main: '#f50057',
+            main: '#A272CC',
         },
         warning: {
-            main: '#ff9800',
+            main: '#E47C8C',
         },
     },
 };

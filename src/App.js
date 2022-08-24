@@ -10,7 +10,10 @@ import RegisterAndEdit from './views/RegisterAndEdit'
 import SubjectFilter from './views/SubjectFilter'
 import SingleBook from './views/SingleBook'
 
-const HomePage=()=>{return(<h1>Welcome to the Marvelous BookStore!</h1>)}
+const HomePage=()=>{return(<h1 sx={{}}>STORY KEEPER</h1>
+
+
+)}
 
 
 function App() {
