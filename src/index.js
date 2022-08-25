@@ -15,7 +15,7 @@ root.render(
       <CustomThemeProvider>
         <AppContextProvider>
           <CssBaseline/>
-          <App />
+          <App/>
         </AppContextProvider>
       </CustomThemeProvider>
     </BrowserRouter>
