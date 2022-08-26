@@ -81,11 +81,11 @@ export default function LoginForm(){
            
             </div>
         </form>
-        <Button type="submit" sx={{width:"80%"}}>Login</Button>
+        <Button type="submit" sx={{width:"80%", mb: 2 }}>Login</Button>
             
             <Error>{error}</Error>
-        
-        <Link to='/RegisterEdit' style={{ textDecoration:'none'}}><Button type="submit" sx={{width:"80%", mt:2}}>{user.first_name?"Edit Profile":"Register"}</Button></Link> 
+        <p style={{textAlign:'left', marginLeft:'100px'}}>Not a member?</p>
+        <Link to='/RegisterEdit' style={{ textDecoration:'none'}}><Button type="submit" variant='text'sx={{width:"20%", mt:0,position:'relative', left:'50px', top:'-45px' }}>{user.first_name?"Edit Profile":"Register"}</Button></Link> 
         
         </>
         </Grid>

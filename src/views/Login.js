@@ -38,7 +38,9 @@ export default function Login(props) {
           margin: "auto",
           backgroundColor: "rgba(0,0,0,0.4)",
           position: "relative",
-          top:'150px'
+          top:'150px',
+          color:'white',
+          
           // display: "inline-block",
 
           // marginTop: "5%",
