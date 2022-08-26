@@ -22,7 +22,7 @@ export default function Login(props) {
       //   // height:100,
       // }} */
 
-    <Grid
+    <Box
       sx={{
         backgroundImage: `url(${cloud})`,
         backgroundRepeat: "no-repeat",
@@ -30,14 +30,16 @@ export default function Login(props) {
         minHeight: 920,
       }}
     >
-      <Box
+      <Box style={{}}
         sx={{
           width: 500,
           height: 500,
           padding: "3rem",
-          // marginTop:"10px",
           margin: "auto",
           backgroundColor: "rgba(0,0,0,0.4)",
+          position: "relative",
+          top:'150px'
+          // display: "inline-block",
 
           // marginTop: "5%",
         }}
@@ -48,6 +50,6 @@ export default function Login(props) {
         <LoginForm />
       </Box>
       {/* /* </Paper> */}
-    </Grid>
+    </Box>
   );
 }
