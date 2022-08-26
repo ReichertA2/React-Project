@@ -17,10 +17,10 @@ export const themeOptions = {
       main: "#3F616D",
     },
   },
-  styleOverrides: {
+  styles: {
     MuiBox: {
       root: {
-        padding: "0px",
+        padding: "0",
       },
     },
   },

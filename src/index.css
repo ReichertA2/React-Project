@@ -7,10 +7,15 @@ html, body, #root>div {
    
     /* background-image: linear-gradient(to top, #3f616d, #3e6a79, #3d7285, #3b7b92, #38849f, #36809a, #347d96, #327991, #30687a, #2e5865, #2b4850, #27383d); */
  } 
- .MuiBox-root {
+main {
+    flex-grow: 0;
+    padding:0px,
+
     
     
   }
+
+
 
 
 

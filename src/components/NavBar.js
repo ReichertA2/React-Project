@@ -123,6 +123,7 @@ export default function MiniDrawer({ children }) {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
+
       <AppBar position="fixed" open={open}>
         <Toolbar>
           <IconButton
@@ -137,6 +138,7 @@ export default function MiniDrawer({ children }) {
           >
             <MenuIcon />
           </IconButton>
+          
           <Box sx={{ mr: 3 }}>
             <Link to="/">
               <img
@@ -147,6 +149,7 @@ export default function MiniDrawer({ children }) {
               />
             </Link>
           </Box>
+
           <Typography sx={{ flexGrow: 1 }} variant="h6" noWrap component="div">
             Books
           </Typography>
@@ -220,9 +223,11 @@ export default function MiniDrawer({ children }) {
               }
             </Menu>
           </Box>
+
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>
+
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === "rtl" ? (
@@ -304,7 +309,8 @@ export default function MiniDrawer({ children }) {
           ""
         )}
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+
+      <Box component="main" sx={{ width:"100%"}}>
         <DrawerHeader />
         {children}
       </Box>

@@ -11,6 +11,7 @@ import SubjectFilter from './views/SubjectFilter'
 import SingleBook from './views/SingleBook'
 
 
+
 const HomePage=()=>{return(<h1 sx={{}}>STORY KEEPER</h1>
 
 
@@ -21,16 +22,17 @@ function App() {
 
   return (
     <>
-      <SnackBar/>
+      
       <NavBar>
-        <Box sx={{minHeight:'90vh'}}>
+      <SnackBar/>
+        <Box sx={{minHeight:'1px'}} >
           <Routes>
             <Route path="/" element={<HomePage/>}/>
             <Route path="/ReadingList" element={<ReadingListView/>}/>
             <Route path="/Browse" element={<SubjectFilter/>}/>
             <Route path="/RegisterEdit" element={<RegisterAndEdit/>}/>
             <Route path="/SingleBook/:itemId" element={<SingleBook/>}/>
-            <Route path="/login" element={<Login/>}/>
+            <Route path="/login" element={<Login />}/>
             <Route path="/logout" element={<Logout/>}/>
           </Routes>
         </Box>

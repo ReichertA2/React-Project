@@ -47,10 +47,10 @@ export default function LoginForm(){
     })
 
     return(
-        <Grid align='center'>
+        <Grid align='center' >
         <>
 
-        <form style={{}} onSubmit={formik.handleSubmit}>
+        <form style={{}} onSubmit={formik.handleSubmit} >
             <TextField 
                 id="email"
                 name="email"
