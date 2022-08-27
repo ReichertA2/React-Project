@@ -56,7 +56,7 @@ export default function LoginForm(){
                 name="email"
                 // fullWidth
                 sx={{mb:2, mt:2, width:"80%"}}
-                label="email" 
+                label="Email" 
                 placeholder="email"
                 value={formik.values.email}
                 onChange={formik.handleChange}
@@ -70,7 +70,7 @@ export default function LoginForm(){
                 type="password"
                 // fullWidth
                 sx={{mb:2, width:"80%"}}
-                label="password"
+                label="Password"
                 placeholder="password"
                 value={formik.values.password}
                 onChange={formik.handleChange}
@@ -81,11 +81,11 @@ export default function LoginForm(){
            
             </div>
         </form>
-        <Button type="submit" sx={{width:"80%", mb: 2 }}>Login</Button>
+        <Button type="submit" sx={{width:"80%", mb: 2, textTransform:'capitalize', fontSize:'18px'}}>Login</Button>
             
             <Error>{error}</Error>
         <p style={{textAlign:'left', marginLeft:'100px'}}>Not a member?</p>
-        <Link to='/RegisterEdit' style={{ textDecoration:'none'}}><Button type="submit" variant='text'sx={{width:"20%", mt:0,position:'relative', left:'50px', top:'-45px' }}>{user.first_name?"Edit Profile":"Register"}</Button></Link> 
+        <Link to='/RegisterEdit' style={{ textDecoration:'none'}}><Button type="submit" variant='text'sx={{width:"20%", mt:0,position:'relative', left:'50px', top:'-48px', textTransform:'capitalize', fontSize:'16px' }}>{user.first_name?"Edit Profile":"Register"}</Button></Link> 
         
         </>
         </Grid>
