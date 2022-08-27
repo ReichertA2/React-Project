@@ -157,13 +157,14 @@ export default function MiniDrawer({ children }) {
           </Typography>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, }}>
                 <Avatar
+                sx={{height:"20px", width:"20px", Color:"#00212A", color:'undefined' }}
                   alt={user?.first_name ?? "Please Login"}
                   src={
                     user?.icon
-                      ? `https://avatars.dicebear.com/api/avataaars/${user.icon}.svg`
-                      : `https://avatars.dicebear.com/api/avataaars/${getRandomInt(
+                      ? `https://avatars.dicebear.com/api/identicon/${user.icon}.svg`
+                      : `https://avatars.dicebear.com/api/identicon/${getRandomInt(
                           0,
                           1000
                         )}.svg`

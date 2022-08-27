@@ -12,7 +12,8 @@ import SingleBook from './views/SingleBook'
 
 
 
-const HomePage=()=>{return(<h1 sx={{}}>STORY KEEPER</h1>
+const HomePage=()=>{return(<Box sx={{backgroundImage: "linear-gradient(to top, #28585c, #204e53, #17444b, #0f3a42, #073039, #09313a, #0c333b, #0e343c, #1a4048, #264d54, #315a60, #3d676c);", backgroundSize: "100%",
+minHeight: 920,}}><h1 sx={{margin:'center', padding:'0px'}}>STORY KEEPER</h1></Box>
 
 
 )}
