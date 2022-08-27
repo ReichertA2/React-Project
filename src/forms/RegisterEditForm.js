@@ -6,6 +6,7 @@ import TextField from '@mui/material/TextField';
 import { AppContext } from '../context/AppContext';
 import useCreateUser from '../hooks/useCreateUser';
 import useEditUser from '../hooks/useEditUser';
+import Grid from '@mui/material/Grid';
 
 
 // Defining our yup validation
@@ -72,10 +73,11 @@ export default function RegisterEditForm() {
     }
 
     return (
+        <Grid align='center' >
         <>
             <form onSubmit={formik.handleSubmit}>
 
-                {!user.first_name ? <label>Register</label> : <label>Edit Profile</label>}
+                {!user.first_name ? <label style={{ textAlign: "center", fontSize: "2rem", padding: "0px",}}>Register</label> : <label style={{ textAlign: "center", fontSize: "2rem", padding: "0px",}}>Edit Profile</label>}
 
 
 
@@ -84,8 +86,8 @@ export default function RegisterEditForm() {
                 <TextField
                     id="email"
                     name="email"
-                    fullWidth
-                    sx={{ mb: 2, mt: 2 }}
+                    // fullWidth
+                    sx={{ mb: 2, mt: 2,  width:"80%" }}
                     label="Email"
                     placeholder="Email"
                     value={formik.values.email}
@@ -97,8 +99,8 @@ export default function RegisterEditForm() {
                 <TextField
                     id="first_name"
                     name="first_name"
-                    fullWidth
-                    sx={{ mb: 2 }}
+                    // fullWidth
+                    sx={{ mb: 2, width:"80%" }}
                     label="First Name"
                     placeholder="First Name"
                     value={formik.values.first_name}
@@ -110,8 +112,8 @@ export default function RegisterEditForm() {
                 <TextField
                     id="last_name"
                     name="last_name"
-                    fullWidth
-                    sx={{ mb: 2 }}
+                    // fullWidth
+                    sx={{ mb: 2, width:"80%" }}
                     label="Last Name"
                     placeholder="Last name"
                     value={formik.values.last_name}
@@ -124,8 +126,8 @@ export default function RegisterEditForm() {
                     id="password"
                     name="password"
                     type="password"
-                    fullWidth
-                    sx={{ mb: 2 }}
+                    // fullWidth
+                    sx={{ mb: 2, width:"80%" }}
                     label="Password"
                     placeholder="Password"
                     value={formik.values.password}
@@ -134,9 +136,9 @@ export default function RegisterEditForm() {
                     helperText={formik.touched.password && formik.errors.password}
                 />
                 {!user.first_name ?
-                    <Button type="submit" sx={{ width: "100%" }}>Register</Button> :
+                    <Button type="submit" sx={{ width: "80%", textTransform:'capitalize', fontSize:'18px' }}>Register</Button> :
                     <div>
-                        <Button type="submit" sx={{ width: "100%" }}>Edit Profile</Button>
+                        <Button type="submit" sx={{ width: "80%",  textTransform:'capitalize', fontSize:'18px' }}>Edit Profile</Button>
 
                     </div>}
 
@@ -147,6 +149,7 @@ export default function RegisterEditForm() {
             
             {user.first_name ? <Button type="button" color="error" onClick={() => handleDelete()} sx={{ width: "100%", my: 1 }}>Delete User</Button> : ''}
         </>
+        </Grid>
     )
 
 

@@ -46,7 +46,7 @@ export default function Login(props) {
           // marginTop: "5%",
         }}
       >
-        <h4 style={{ textAlign: "center", fontSize: "2rem", padding: "0px",}}>
+        <h4 style={{ textAlign: "center", fontSize: "2rem", padding: "0px"}}>
           Login
         </h4>
         <LoginForm />
