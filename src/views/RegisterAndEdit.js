@@ -5,13 +5,18 @@ import cloud from "../login_clouds.jpg";
 
 export default function RegisterAndEdit() {
   return (
-    <Box
+    <Box 
       sx={{
+        
         backgroundImage: `url(${cloud})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "100%",
         minHeight: 920,
+        
+       
+        
       }}
+      
     >
       <Box
         style={{}}
@@ -24,6 +29,7 @@ export default function RegisterAndEdit() {
           position: "relative",
           top: "150px",
           color: "white",
+          
 
           // display: "inline-block",
 
@@ -32,6 +38,7 @@ export default function RegisterAndEdit() {
       >
         <RegisterEditForm />
       </Box>
+      
       {/* /* </Paper> */}
     </Box>
   );

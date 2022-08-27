@@ -29,6 +29,7 @@ import Badge from "@mui/material/Badge";
 import { Link } from "react-router-dom";
 import RegLink from "@mui/material/Link";
 import ConnectWithoutContactIcon from "@mui/icons-material/ConnectWithoutContact";
+import MenuBookIcon from '@mui/icons-material/MenuBook';
 
 const drawerWidth = 240;
 
@@ -139,14 +140,15 @@ export default function MiniDrawer({ children }) {
             <MenuIcon />
           </IconButton>
           
-          <Box sx={{ mr: 3 }}>
+          <Box sx={{ mr: 3, height:"45px", mt:2 }}>
             <Link to="/">
-              <img
+              <MenuBookIcon style={{color:"#00212A"}}>
+              {/* <img
                 height="45px"
                 alt="book logo"
                 className="p2"
-                src="https://res.cloudinary.com/dla9zwzty/image/upload/v1654099900/logo_s8tcss.jpg"
-              />
+                src="https://res.cloudinary.com/dla9zwzty/image/upload/v1654099900/logo_s8tcss.jpg" */}
+              </MenuBookIcon>
             </Link>
           </Box>
 
