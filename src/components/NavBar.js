@@ -153,13 +153,13 @@ export default function MiniDrawer({ children }) {
           </Box>
 
           <Typography sx={{ flexGrow: 1 }} variant="h6" noWrap component="div">
-            Books
+            
           </Typography>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, }}>
                 <Avatar
-                sx={{height:"20px", width:"20px", Color:"#00212A", color:'undefined' }}
+                sx={{height:"20px", width:"20px", color:"#00212A" }}
                   alt={user?.first_name ?? "Please Login"}
                   src={
                     user?.icon
