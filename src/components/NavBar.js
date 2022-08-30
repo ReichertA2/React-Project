@@ -29,7 +29,8 @@ import Badge from "@mui/material/Badge";
 import { Link } from "react-router-dom";
 import RegLink from "@mui/material/Link";
 import ConnectWithoutContactIcon from "@mui/icons-material/ConnectWithoutContact";
-import MenuBookIcon from '@mui/icons-material/MenuBook';
+import MenuBookIcon from "@mui/icons-material/MenuBook";
+import { borderRight } from "@mui/system";
 
 const drawerWidth = 240;
 
@@ -124,7 +125,6 @@ export default function MiniDrawer({ children }) {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-
       <AppBar position="fixed" open={open}>
         <Toolbar>
           <IconButton
@@ -139,11 +139,11 @@ export default function MiniDrawer({ children }) {
           >
             <MenuIcon />
           </IconButton>
-          
-          <Box sx={{ mr: 3, height:"45px", mt:2 }}>
+
+          <Box sx={{ mr: 3, height: "45px", mt: 2 }}>
             <Link to="/">
-              <MenuBookIcon style={{color:"#00212A"}}>
-              {/* <img
+              <MenuBookIcon style={{ color: "#00212A" }}>
+                {/* <img
                 height="45px"
                 alt="book logo"
                 className="p2"
@@ -151,15 +151,18 @@ export default function MiniDrawer({ children }) {
               </MenuBookIcon>
             </Link>
           </Box>
+          <Typography
+            sx={{ flexGrow: 1 }}
+            variant="h6"
+            noWrap
+            component="div"
+          ></Typography>
 
-          <Typography sx={{ flexGrow: 1 }} variant="h6" noWrap component="div">
-            
-          </Typography>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, }}>
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar
-                sx={{height:"20px", width:"20px", color:"#00212A" }}
+                  sx={{ height: "20px", width: "20px", color: "#00212A" }}
                   alt={user?.first_name ?? "Please Login"}
                   src={
                     user?.icon
@@ -190,29 +193,30 @@ export default function MiniDrawer({ children }) {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {user.first_name? <section>
-                <MenuItem >
-                  <Typography textAlign="center">
-                    <Link
-                      to="/RegisterEdit"
-                      style={{ textDecoration: "none", color: "black" }}
-                    >
-                      Register/Edit Profile
-                    </Link>
-                  </Typography>
-                </MenuItem>
-                <MenuItem onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">
-                    <Link
-                      to="/logout"
-                      style={{ textDecoration: "none", color: "black" }}
-                    >
-                      Logout
-                    </Link>
-                  </Typography>
-                </MenuItem>
+              {user.first_name ? (
+                <section>
+                  <MenuItem>
+                    <Typography textAlign="center">
+                      <Link
+                        to="/RegisterEdit"
+                        style={{ textDecoration: "none", color: "black" }}
+                      >
+                        Register/Edit Profile
+                      </Link>
+                    </Typography>
+                  </MenuItem>
+                  <MenuItem onClick={handleCloseUserMenu}>
+                    <Typography textAlign="center">
+                      <Link
+                        to="/logout"
+                        style={{ textDecoration: "none", color: "black" }}
+                      >
+                        Logout
+                      </Link>
+                    </Typography>
+                  </MenuItem>
                 </section>
-               : 
+              ) : (
                 <MenuItem onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">
                     <Link
@@ -223,98 +227,112 @@ export default function MiniDrawer({ children }) {
                     </Link>
                   </Typography>
                 </MenuItem>
-              }
+              )}
             </Menu>
           </Box>
-
         </Toolbar>
       </AppBar>
-      <Drawer variant="permanent" open={open}>
-<Box sx={{color:'white',backgroundColor:'#3F616D', backgroundSize: 'cover', flexGrow: 1}}>
-        <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === "rtl" ? (
-              <ChevronRightIcon />
-            ) : (
-              <ChevronLeftIcon />
-            )}
-          </IconButton>
-        </DrawerHeader>
-        <Divider />
-        <List>
-          {[
-            { label: "Home", path: "/", icon: <HomeSharpIcon /> },
-            { label: "Book Store", path: "/Browse", icon: <StoreSharpIcon /> },
-            {
-              label: "Reading List",
-              path: "/ReadingList",
-              icon: (
-                <Badge badgeContent={cart?.length}>
-                  <AutoStoriesSharpIcon />
-                </Badge>
-              ),
-            },
-          ].map((navItem, index) => (
-            <ListItem
-              key={navItem.label}
-              disablePadding
-              sx={{ display: "block", ml: 2, mb: 2 }}
-            >
-              <Link
-                to={navItem.path}
-                style={{
-                  display: "flex",
-                  color: "inherit",
-                  textDecoration: "none",
-                }}
+      <Drawer
+        variant="permanent"
+        open={open}
+        PaperProps={{ sx: { border: "0px" } }}
+      >
+        <Box
+          sx={{
+            color: "white",
+            backgroundColor: "#3F616D",
+            backgroundSize: "cover",
+            flexGrow: 1,
+          }}
+        >
+          <DrawerHeader>
+            <IconButton onClick={handleDrawerClose}>
+              {theme.direction === "rtl" ? (
+                <ChevronRightIcon />
+              ) : (
+                <ChevronLeftIcon />
+              )}
+            </IconButton>
+          </DrawerHeader>
+          <Divider />
+          <List>
+            {[
+              { label: "Home", path: "/", icon: <HomeSharpIcon /> },
+              {
+                label: "Book Store",
+                path: "/Browse",
+                icon: <StoreSharpIcon />,
+              },
+              {
+                label: "Reading List",
+                path: "/ReadingList",
+                icon: (
+                  <Badge badgeContent={cart?.length}>
+                    <AutoStoriesSharpIcon />
+                  </Badge>
+                ),
+              },
+            ].map((navItem, index) => (
+              <ListItem
+                key={navItem.label}
+                disablePadding
+                sx={{ display: "block", ml: 2, mb: 2 }}
               >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : "auto",
-                    justifyContent: "center",
+                <Link
+                  to={navItem.path}
+                  style={{
+                    display: "flex",
+                    color: "inherit",
+                    textDecoration: "none",
                   }}
                 >
-                  {navItem.icon}
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 3 : "auto",
+                      justifyContent: "center",
+                    }}
+                  >
+                    {navItem.icon}
+                  </ListItemIcon>
+                  <ListItemText
+                    primary={navItem.label}
+                    sx={{ opacity: open ? 1 : 0 }}
+                  />
+                </Link>
+              </ListItem>
+            ))}
+            <ListItem button key={"Social"}>
+              <RegLink
+                href="https://www.linkedin.com/in/aydee-reichert/"
+                color="inherit"
+                underline="none"
+                sx={{ display: "flex", marginTop: "-5px" }}
+              >
+                <ListItemIcon>
+                  <ConnectWithoutContactIcon />
                 </ListItemIcon>
-                <ListItemText
-                  primary={navItem.label}
-                  sx={{ opacity: open ? 1 : 0 }}
-                />
-              </Link>
+                <ListItemText sx={{ marginLeft: "-7px" }} primary={"Social"} />
+              </RegLink>
             </ListItem>
-          ))}
-          <ListItem button key={"Social"}>
-            <RegLink
-              href="https://www.linkedin.com/in/aydee-reichert/"
-              color="inherit"
-              underline="none"
-              sx={{ display: "flex", marginTop:'-5px' }}
+          </List>
+          {open ? (
+            <ListItem
+              sx={{
+                position: "absolute",
+                bottom: "0px",
+                justifyContent: "center",
+              }}
             >
-              <ListItemIcon>
-                <ConnectWithoutContactIcon />
-              </ListItemIcon>
-              <ListItemText  sx={{marginLeft:'-7px', }} primary={"Social"} />
-            </RegLink>
-          </ListItem>
-        </List>
-        {open ? (
-          <ListItem
-            sx={{
-              position: "absolute",
-              bottom: "0px",
-              justifyContent: "center",
-            }}
-          >
-            <ThemeSwitch />
-          </ListItem>
-        ) : (
-          ""
-        )}
+              <ThemeSwitch />
+            </ListItem>
+          ) : (
+            ""
+          )}
         </Box>
       </Drawer>
 
-      <Box component="main" sx={{ width:"100%"}}>
+      <Box component="main" sx={{ width: "100%" }}>
         <DrawerHeader />
         {children}
       </Box>
