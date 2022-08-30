@@ -12,6 +12,8 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import { AppContext } from '../context/AppContext';
+import ImageList from '@mui/material/ImageList';
+import ImageListItem from '@mui/material/ImageListItem';
 
 export default function BookCard({item}) {
 
@@ -43,17 +45,19 @@ export default function BookCard({item}) {
 
   
     return (
-        <Card  sx={{ maxWidth: 350}}>
-
+       
+        <Card  sx={{ width:300,}}>
+     
         {/* <Card  sx={{ maxWidth: 350, display:"table-cell"}}> */}
-            <CardMedia
+            <CardMedia style={{minHeight:350, width:300, float:'right'}}
                 component="img"
-                height="500"
+                height="200"
                 image={item.img}
                 alt={item.title}
             />
+           
             <CardContent>
-                <Typography gutterBottom variant="h4" component="div">
+                <Typography gutterBottom variant="h6" component="div">
                     {item.title}
                 </Typography>
                 <Typography gutterBottom variant="h6" component="div">
@@ -84,7 +88,12 @@ export default function BookCard({item}) {
         <Button size="small">Unread</Button> */}
 
             </CardActions>
+           
         </Card>
+       
+        
+        
+       
         
     );
 }
