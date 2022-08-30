@@ -286,15 +286,15 @@ export default function MiniDrawer({ children }) {
           ))}
           <ListItem button key={"Social"}>
             <RegLink
-              href="http://google.com"
+              href="https://www.linkedin.com/in/aydee-reichert/"
               color="inherit"
               underline="none"
-              sx={{ display: "flex" }}
+              sx={{ display: "flex", marginTop:'-5px' }}
             >
               <ListItemIcon>
                 <ConnectWithoutContactIcon />
               </ListItemIcon>
-              <ListItemText primary={"Social"} />
+              <ListItemText  sx={{marginLeft:'-7px', }} primary={"Social"} />
             </RegLink>
           </ListItem>
         </List>
