@@ -60,8 +60,8 @@ export default function ComboBox() {
       disablePortal
       id="combo-box-demo"
       options={subjects}
-      sx={{ width: 300 }}
-      renderInput={(params) => <TextField {...params} label="Subject" />}
+      sx={{ width: 300, margin:'auto', marginTop:'20px'}}
+      renderInput={(params) => <TextField {...params} label="SUBJECT" />}
       onChange={(option,value,selectOption) => setLabel(value)}
       />
       <AllBookBrowser filterBy={label} />
