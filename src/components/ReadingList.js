@@ -32,10 +32,10 @@ export default function ReadingList() {
   console.log('readinglist', cart)
   return (
     <>
-    <Button key="delete" onClick={()=>{ emptyCart()}} size="small">Remove All</Button>
+    <Button key="delete" onClick={()=>{ emptyCart()}} size="small" sx={{display:"block"}}>Remove All</Button>
       <Box sx={{ mb: 15}}>
         {[...new Set(cart?.map(JSON.stringify))]?.map(JSON.parse)?.map((item) => (
-            <BookCard key={item.id} item={item} />
+            <BookCard key={item.id} item={item}  />
           ))}
       </Box>
     </>
