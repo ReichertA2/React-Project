@@ -230,7 +230,7 @@ export default function MiniDrawer({ children }) {
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>
-
+<Box sx={{color:'white',backgroundColor:'#3F616D', backgroundSize: 'cover', flexGrow: 1}}>
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === "rtl" ? (
@@ -311,6 +311,7 @@ export default function MiniDrawer({ children }) {
         ) : (
           ""
         )}
+        </Box>
       </Drawer>
 
       <Box component="main" sx={{ width:"100%"}}>

@@ -30,10 +30,7 @@ export default function SingleBookCard() {
     return (
       <Box
         sx={{
-          display: "flex",
-          backgroundImage:
-            "linear-gradient(to top, #28585c, #204e53, #17444b, #0f3a42, #073039, #09313a, #0c333b, #0e343c, #1a4048, #264d54, #315a60, #3d676c);",
-          backgroundSize: "100%",
+          
         }}
       >
         <CircularProgress />
@@ -43,13 +40,9 @@ export default function SingleBookCard() {
 
   return (
     <div
-      sx={{
-        minHeight: "920", width: "80%",
-        backgroundImage:
-          "linear-gradient(to top, #28585c, #204e53, #17444b, #0f3a42, #073039, #09313a, #0c333b, #0e343c, #1a4048, #264d54, #315a60, #3d676c);",
-      }}
+      
     >
-      <Card sx={{ width: 300, minHeight:550,margin: "auto", marginTop: "10px",  }}>
+      <Card sx={{ width: 300, minHeight:550,margin: "auto", marginTop: "100px",  }}>
         <CardMedia
         
           component="img"

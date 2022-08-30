@@ -23,7 +23,7 @@ minHeight: 920,}}><h1 style={{textAlign:'center', padding:'0px', fontSize:"500%"
 function App() {
 
   return (
-    <>
+    <div className="App">
       
       <NavBar>
       <SnackBar/>
@@ -39,7 +39,7 @@ function App() {
           </Routes>
         </Box>
       </NavBar>
-    </>
+    </div>
   );
 }
 

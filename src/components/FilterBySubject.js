@@ -55,17 +55,17 @@ export default function ComboBox() {
     
   // const {books, error} = useBookCard();
   return (
-    <>
+    <div sx={{}}>
       <Autocomplete
       disablePortal
       id="combo-box-demo"
       options={subjects}
-      sx={{ width: 300, margin:'auto', marginTop:'20px'}}
+      sx={{ width: 300, margin:'auto', marginTop:'20px', backgroundColor: "rgba(0,0,0,0.1)", color:'white' }}
       renderInput={(params) => <TextField {...params} label="SUBJECT" />}
       onChange={(option,value,selectOption) => setLabel(value)}
       />
       <AllBookBrowser filterBy={label} />
-    </>
+    </div>
   );
 }
 
