@@ -14,6 +14,7 @@ import Switch from '@mui/material/Switch';
 import { AppContext } from '../context/AppContext';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
+import ImageListItemBar from "@mui/material/ImageListItemBar";
 
 export default function BookCard({item}) {
 
@@ -46,55 +47,46 @@ export default function BookCard({item}) {
   
     return (
        
-        <Card  sx={{ width:300,}}>
+        <ImageList cols={4}>
      
         {/* <Card  sx={{ maxWidth: 350, display:"table-cell"}}> */}
-            <CardMedia style={{minHeight:350, width:300, float:'right'}}
-                component="img"
-                height="200"
-                image={item.img}
-                alt={item.title}
+        <ImageListItem key={item.id}>
+            <img style={{height:300, width:200}}
+              src={`${item.img}`}
+              srcSet={`${item.img}`}
+              alt={item.title}
+              loading="lazy"
             />
-           
-            <CardContent>
-                <Typography gutterBottom variant="h6" component="div">
-                    {item.title}
-                </Typography>
-                <Typography gutterBottom variant="h6" component="div">
-                    {item.author}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                    {item.summary}
-
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                    {item.pages}
-
-                </Typography>
-
-
-            </CardContent>
-            <CardActions sx={{}}>
-                <Button sx={{}} key="add" onClick={()=>{addToCart(item)}}  size="small">Add</Button>
-                <Button key="delete" onClick={()=>{removeFromCart(item)}} size="small">Remove</Button>
+            <ImageListItemBar
+            style={{height:50, width:200 }}
+              title={item.title}
+              subtitle={item.author}
+              actionIcon={<>
+                <Button style={{fontSize:'10px'}} variant='outlined' key="add" onClick={()=>{addToCart(item)}}  size="small">Add</Button>
+                <Button style={{fontSize:'10px'}} variant='outlined' key="delete" onClick={()=>{removeFromCart(item)}} size="small">Remove</Button>
                 
 
-                {/* below is the formGroup code that is here if you want to remove later */}
+{/*                
                 <FormGroup>
                     <FormControlLabel control={<Switch defaultChecked />} label="Read/Unread" />
-                </FormGroup>
+                </FormGroup> */}
 
-                {/* <Button size="small">Read</Button>
-        <Button size="small">Unread</Button> */}
+             
 
-            </CardActions>
+          
            
-        </Card>
-       
-        
-        
-       
-        
+</>
+              }
+            />
+          </ImageListItem>
+      
+      </ImageList>
     );
-}
+  }
+       
+        
+        
+       
+        
+ 
 
