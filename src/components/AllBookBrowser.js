@@ -55,7 +55,7 @@ export default function AllBookBrowser(filterBy) {
     bookList = books.filter((item) => item.subject === filterBy.filterBy);
     console.log("bookList: ", bookList);
     return (
-      <ImageList cols={3}>
+      <ImageList style={{}} cols={9}>
         {/* {(bookList !== []) ? 
         // 'test':''} */}
 
@@ -63,7 +63,7 @@ export default function AllBookBrowser(filterBy) {
 
             
           <ImageListItem key={item.id}>
-            <img
+            <img style={{height:300, width:200}}
               src={`${item.img}`}
               srcSet={`${item.img}`}
               alt={item.title}
@@ -79,7 +79,7 @@ export default function AllBookBrowser(filterBy) {
                   onClick={()=>{handleAddToCart(item)}}
                   
                 >
-                  <BookmarkAddSharpIcon />
+                   <BookmarkAddSharpIcon style={{fontSize:'large',marginTop:'5px'}}/>
 
                 </IconButton>
                  <IconButton
@@ -87,7 +87,7 @@ export default function AllBookBrowser(filterBy) {
                  aria-label={`info about ${item.title}`}
                  onClick={()=>navigate('/SingleBook/'+item.id)}
                >
-                 <InfoIcon />
+                 <InfoIcon   style={{fontSize:'large', marginTop:'-12px'}}/>
                </IconButton>
                </>
               }
