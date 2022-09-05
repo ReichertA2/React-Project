@@ -23,7 +23,7 @@ Image by Roanne Copin from Pixabay
 
 The Reading List application includes login and registration authentication that allows the user to browse books and can filter by subject. The user is able to add and remove books from their reading list as well.
 
-## Backend API
+## Backend-Flask API
 [Kevin Beier]( https://cae-bootstore.herokuapp.com)
 
 
